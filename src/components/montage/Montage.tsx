@@ -1,7 +1,6 @@
+import * as React from 'react';
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
-
-import React from 'react';
 
 const itemData = [
   {
@@ -56,11 +55,7 @@ const itemData = [
 
 function Montage() {
   return (
-    <ImageList
-      sx={{ width: 500, height: 450, marginLeft: 60 }}
-      cols={3}
-      rowHeight={164}
-    >
+    <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
       {itemData.map((item) => (
         <ImageListItem key={item.img}>
           <img
