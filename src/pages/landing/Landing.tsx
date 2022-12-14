@@ -8,7 +8,7 @@ function Landing() {
   return (
     <div>
       <Header />
-      <div style={styles.headline}>
+      <div>
         <Typography variant="h4">
           Connect your dApp or web3 solution to the private (Ethereum)
           blockchain network infrastructure.
