@@ -1,12 +1,12 @@
 import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
-  headline: {
+  wordborder: {
+    border: '1px solid black',
     padding: theme.spacing(2),
+    margin: theme.spacing(5),
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
   },
 };
 export default styles;

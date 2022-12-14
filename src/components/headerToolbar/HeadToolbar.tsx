@@ -1,9 +1,10 @@
 import { Toolbar, Stack, Button } from '@mui/material';
+import styles from './styles';
 
 function HeaderToolbar() {
   return (
     <Toolbar>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" spacing={2} style={styles.toolbarButtons}>
         <Button variant="text" color="inherit">
           Signup Now!
         </Button>
