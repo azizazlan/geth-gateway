@@ -6,7 +6,7 @@ import styles from './styles';
 
 function Landing() {
   return (
-    <div>
+    <>
       <Header />
       <div style={styles.headline}>
         <Typography variant="h4">
@@ -16,7 +16,7 @@ function Landing() {
       </div>
       <Montage />
       <DescPanel />
-    </div>
+    </>
   );
 }
 
