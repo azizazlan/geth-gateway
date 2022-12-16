@@ -1,13 +1,13 @@
 import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
-  wordborder: {
-    border: '1px solid black',
-    padding: theme.spacing(2),
-    margin: theme.spacing(1),
+  toolbarInnerDiv: {
+    width: '100%',
     display: 'flex',
-    justifyContent: 'center',
-    width: 'fit-content',
+    flexDirection: 'row',
+  },
+  brandingDiv: {
+    flexGrow: 1,
   },
 };
 export default styles;

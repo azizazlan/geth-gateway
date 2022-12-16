@@ -1,19 +1,25 @@
 import { AppBar, Toolbar } from '@mui/material';
 import Branding from '../branding';
 
-import HeaderToolbar from '../headerToolbar';
+import Navbar from '../navbar';
+import { NavbarMode } from '../navbar/Navbar';
 import styles from './styles';
 
-function Header() {
+type HeaderProps = {
+  mode: NavbarMode;
+};
+
+function Header(props: HeaderProps) {
+  const { mode } = props;
   return (
-    <AppBar
-      style={{ position: 'absulute', top: 0 }}
-      position="static"
-      color="default"
-    >
+    <AppBar>
       <Toolbar>
-        <Branding />
-        <HeaderToolbar />
+        <div style={styles.toolbarInnerDiv}>
+          <div style={styles.brandingDiv}>
+            <Branding />
+          </div>
+          <Navbar mode={mode} />
+        </div>
       </Toolbar>
     </AppBar>
   );
