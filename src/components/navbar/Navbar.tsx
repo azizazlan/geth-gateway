@@ -1,4 +1,7 @@
-import { Toolbar, Stack } from '@mui/material';
+import { Toolbar, Stack, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+
 import styles from './styles';
 
 type NavbarProps = {
@@ -16,11 +19,19 @@ function Navbar(props: NavbarProps) {
   if (mode === NavbarMode.DEFAULT) {
     return (
       <Toolbar>
-        <Stack direction="row" spacing={2} style={styles.linksContainer}>
-          <div>Links 1</div>
-          <div>Links 2</div>
-          <div>Links 3</div>
-          <div>Links 4</div>
+        <Stack direction="row" spacing={5} style={styles.linksContainer}>
+          <Link style={styles.hyperlink} to="/signup">
+            Sign Up
+          </Link>
+          <Link style={styles.hyperlink} to="/organisationlogin">
+            Organisation Log In
+          </Link>
+          <Link style={styles.hyperlink} to="/adminlogin">
+            Admin Log In
+          </Link>
+          <Link style={styles.hyperlink} to="/about">
+            About
+          </Link>
         </Stack>
       </Toolbar>
     );
@@ -29,7 +40,9 @@ function Navbar(props: NavbarProps) {
     return (
       <Toolbar>
         <Stack direction="row" spacing={2} style={styles.toolbarButtons}>
-          <div>Usr profile</div>
+          <div>
+            <AccountCircle style={styles.linksContainer} />
+          </div>
         </Stack>
       </Toolbar>
     );

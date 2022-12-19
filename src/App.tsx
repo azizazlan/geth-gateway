@@ -1,8 +1,8 @@
+/* eslint-disable import/no-cycle */
 import React from 'react';
-import Landing from './pages/landing/index';
 
 function App() {
-  return <Landing />;
+  return <div>App</div>;
 }
 
 export default App;

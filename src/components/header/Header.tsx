@@ -12,7 +12,7 @@ type HeaderProps = {
 function Header(props: HeaderProps) {
   const { mode } = props;
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={styles.root}>
       <Toolbar>
         <div style={styles.toolbarInnerDiv}>
           <div style={styles.brandingDiv}>
