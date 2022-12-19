@@ -1,23 +1,27 @@
-import { Typography, Box, AppBar, Toolbar } from '@mui/material';
+import { AppBar, Toolbar } from '@mui/material';
+import Branding from '../branding';
 
-import HeaderToolbar from '../headerToolbar';
+import Navbar from '../navbar';
+import { NavbarMode } from '../navbar/Navbar';
 import styles from './styles';
 
-function Header() {
+type HeaderProps = {
+  mode: NavbarMode;
+};
+
+function Header(props: HeaderProps) {
+  const { mode } = props;
   return (
-    <div>
-      <AppBar position="static" color="default">
-        <Toolbar>
-          <Typography>
-            <Box style={styles.wordborder}>
-              <Typography variant="h4">geth-gateway</Typography>
-            </Box>
-            <Typography variant="h6">MAMPU Private Ethereum Network</Typography>
-          </Typography>
-          <HeaderToolbar />
-        </Toolbar>
-      </AppBar>
-    </div>
+    <AppBar position="static">
+      <Toolbar>
+        <div style={styles.toolbarInnerDiv}>
+          <div style={styles.brandingDiv}>
+            <Branding />
+          </div>
+          <Navbar mode={mode} />
+        </div>
+      </Toolbar>
+    </AppBar>
   );
 }
 

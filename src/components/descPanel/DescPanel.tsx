@@ -5,7 +5,7 @@ import styles from './styles';
 
 function DescPanel() {
   return (
-    <div style={styles.wordborder}>
+    <div style={styles.textborder}>
       <Typography variant="h5">
         While walking across an open, grassy field, I became excited as my hand
         swooped toward the ground like an eagle attacking its prey. I picked up
