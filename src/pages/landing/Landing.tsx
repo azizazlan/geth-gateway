@@ -1,4 +1,5 @@
 import { Typography } from '@mui/material';
+
 import DescPanel from '../../components/descPanel';
 import Montage from '../../components/montage';
 import Header from '../../components/header';

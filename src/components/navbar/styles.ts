@@ -6,5 +6,12 @@ const styles: { [key: string]: React.CSSProperties } = {
     textDecoration: 'none',
     color: 'white',
   },
+  burgericon: {
+    color: 'white',
+  },
+  contextmenu: {
+    textDecoration: 'none',
+    color: 'black',
+  },
 };
 export default styles;

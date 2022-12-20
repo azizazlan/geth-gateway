@@ -1,4 +1,3 @@
-import { blue } from '@mui/material/colors';
 import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
