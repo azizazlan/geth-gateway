@@ -1,6 +1,6 @@
 import styles from './styles';
 
-function Branding() {
+export default function Branding() {
   return (
     <div style={styles.container}>
       <div>geth-gateway</div>
@@ -8,4 +8,3 @@ function Branding() {
     </div>
   );
 }
-export default Branding;

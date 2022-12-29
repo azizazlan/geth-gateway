@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './styles';
 
-function DescPanel() {
+export default function DescPanel() {
   return (
     <div style={styles.textborder}>
       <Typography variant="h5">
@@ -19,5 +19,3 @@ function DescPanel() {
     </div>
   );
 }
-
-export default DescPanel;

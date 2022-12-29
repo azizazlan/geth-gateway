@@ -1,12 +1,12 @@
 import { Typography } from '@mui/material';
 
-import DescPanel from '../../components/descPanel';
-import Montage from '../../components/montage';
-import Header from '../../components/header';
+import DescPanel from '../../components/DescPanel/DescPanel';
+import Montage from '../../components/Montage/Montage';
+import Header from '../../components/Header/Header';
 import styles from './styles';
-import { NavbarMode } from '../../components/navbar/Navbar';
+import { NavbarMode } from '../../components/Navbar/Navbar';
 
-function Landing() {
+export default function Landing() {
   return (
     <>
       <Header mode={NavbarMode.DEFAULT} />
@@ -21,5 +21,3 @@ function Landing() {
     </>
   );
 }
-
-export default Landing;

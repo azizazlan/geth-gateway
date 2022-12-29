@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './styles';
 
-function Montage() {
+export default function Montage() {
   return (
     <div style={styles.montage}>
       <img
@@ -11,5 +11,3 @@ function Montage() {
     </div>
   );
 }
-
-export default Montage;

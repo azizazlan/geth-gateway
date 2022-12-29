@@ -1,18 +1,17 @@
 import { AppBar, Toolbar } from '@mui/material';
-import Branding from '../branding';
+import Branding from '../Branding/Branding';
 
-import Navbar from '../navbar';
-import { NavbarMode } from '../navbar/Navbar';
+import Navbar, { NavbarMode } from '../Navbar/Navbar';
 import styles from './styles';
 
 type HeaderProps = {
   mode: NavbarMode;
 };
 
-function Header(props: HeaderProps) {
+export default function Header(props: HeaderProps) {
   const { mode } = props;
   return (
-    <AppBar position="static" style={styles.root}>
+    <AppBar position="static">
       <Toolbar>
         <div style={styles.toolbarInnerDiv}>
           <div style={styles.brandingDiv}>
@@ -24,5 +23,3 @@ function Header(props: HeaderProps) {
     </AppBar>
   );
 }
-
-export default Header;

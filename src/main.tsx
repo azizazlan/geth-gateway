@@ -5,11 +5,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
 import './index.css';
-import Landing from './pages/landing';
-import About from './pages/about';
-import Signup from './pages/signup';
+import Landing from './pages/Landing/Landing';
+import About from './pages/About/About';
+import Signup from './pages/Signup/Signup';
 
-function Routing() {
+export default function Routing() {
   return (
     <Routes>
       <Route path="/" element={<Landing />} />
@@ -18,7 +18,6 @@ function Routing() {
     </Routes>
   );
 }
-export default Routing;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

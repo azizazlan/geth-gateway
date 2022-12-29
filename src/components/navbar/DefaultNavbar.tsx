@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 import styles from './styles';
 
-function DefaultNavbar() {
+export default function DefaultNavbar() {
   const device = useTheme();
   const isMinimized = useMediaQuery(device.breakpoints.down('md'));
 
@@ -92,5 +92,3 @@ function DefaultNavbar() {
     </div>
   );
 }
-
-export default DefaultNavbar;

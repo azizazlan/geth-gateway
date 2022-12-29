@@ -2,8 +2,8 @@ import React from 'react';
 import { Toolbar, Stack } from '@mui/material';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 
-import styles from './styles';
 import DefaultNavbar from './DefaultNavbar';
+import styles from './styles';
 
 type NavbarProps = {
   mode: NavbarMode;
@@ -15,7 +15,7 @@ export enum NavbarMode {
   SIGN_IN, // for user who is about to log in
 }
 
-function Navbar(props: NavbarProps) {
+export default function Navbar(props: NavbarProps) {
   const { mode } = props;
 
   if (mode === NavbarMode.DEFAULT) {
@@ -34,4 +34,3 @@ function Navbar(props: NavbarProps) {
   }
   return null;
 }
-export default Navbar;
