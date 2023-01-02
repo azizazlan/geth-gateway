@@ -2,12 +2,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import App from './App';
 import './index.css';
 import Landing from './pages/Landing/Landing';
 import About from './pages/About/About';
 import Signup from './pages/Signup/Signup';
+import { store } from './services/store';
 
 export default function Routing() {
   return (
@@ -21,8 +23,10 @@ export default function Routing() {
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routing />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routing />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
