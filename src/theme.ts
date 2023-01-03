@@ -1,6 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
+  palette: {
+    mode: 'light',
+  },
   typography: {
     h1: {
       fontFamily: 'Oswald',

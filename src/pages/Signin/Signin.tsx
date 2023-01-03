@@ -1,13 +1,24 @@
-import { Button } from '@mui/material';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
+import { Button, FormControl, InputLabel, OutlinedInput } from '@mui/material';
 import { useUserDispatch } from '../../services/hook';
-import signIn from '../../services/hooks/user/signIn';
+import signIn from '../../services/thunks/user/signIn';
+import styles from './styles';
+
+type SignInFields = {
+  email: string;
+  password: string;
+};
 
 export default function Signin() {
   const userDispatch = useUserDispatch();
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<SignInFields>();
 
-  const handleSignin = () => {
-    const email = 'jebon@gmail.com';
-    const password = 'Jebon123#';
+  const onSubmit: SubmitHandler<SignInFields> = (data) => {
+    const { email, password } = data;
 
     userDispatch(
       signIn({
@@ -18,8 +29,34 @@ export default function Signin() {
   };
 
   return (
-    <div>
-      <Button onClick={handleSignin}>Signin</Button>
+    <div style={styles.container}>
+      <form id="signin" onSubmit={handleSubmit(onSubmit)}>
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel htmlFor="email">Email</InputLabel>
+          <Controller
+            name="email"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <OutlinedInput label="Email" id="email" {...field} />
+            )}
+          />
+        </FormControl>
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <Controller
+            name="password"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <OutlinedInput label="Password" id="password" {...field} />
+            )}
+          />
+        </FormControl>
+        <Button type="submit" form="signin" variant="contained">
+          sign in
+        </Button>
+      </form>
     </div>
   );
 }
