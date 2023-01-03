@@ -18,8 +18,7 @@ const theme = createTheme({
       fontFamily: 'Oswald',
     },
     h5: {
-      fontFamily: 'Abel',
-      fontWeight: 600,
+      fontFamily: 'Oswald',
     },
     h6: {
       fontFamily: 'Oswald',

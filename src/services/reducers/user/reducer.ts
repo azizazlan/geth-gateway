@@ -13,11 +13,23 @@ interface UserState {
 }
 
 const initialState: UserState = {
-  isSignedIn: false,
   submissionState: 'IDLE',
   submissionErrMsg: null,
   projects: null,
-  user: null,
+  isSignedIn: true,
+  // user: null,
+  user: {
+    id: 69,
+    name: 'Jebon bin Muntal',
+    email: 'jebon@gmail.com',
+    jobPosition: 'IT Executive',
+    role: 'ORG_USER',
+    org: {
+      id: 1,
+      name: 'Jabatan Mangkok Ayun',
+      website: 'https://www.mangkuk.gov.my',
+    },
+  },
 };
 
 export const userSlice = createSlice({
