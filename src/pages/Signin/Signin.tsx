@@ -1,7 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { Button, FormControl, InputLabel, OutlinedInput } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  FormHelperText,
+  InputLabel,
+  OutlinedInput,
+} from '@mui/material';
 import { Navigate } from 'react-router-dom';
 import { useUserDispatch, useUserSelector } from '../../services/hook';
 import signIn from '../../services/thunks/user/signIn';
@@ -20,7 +26,7 @@ const schema = Yup.object().shape({
 });
 
 export default function Signin() {
-  const { isSignedIn, submissionState } = useUserSelector(
+  const { isSignedIn, submissionState, submissionErrMsg } = useUserSelector(
     (state: UserState) => state.user
   );
   const userDispatch = useUserDispatch();
@@ -53,7 +59,11 @@ export default function Signin() {
         open={submissionState === 'PENDING'}
         handleClose={() => console.log('close')}
       />
-      <form id="signin" onSubmit={handleSubmit(onSubmit)}>
+      <form
+        style={styles.formContainer}
+        id="signin"
+        onSubmit={handleSubmit(onSubmit)}
+      >
         <FormControl fullWidth margin="normal" variant="outlined">
           <InputLabel htmlFor="email">Email</InputLabel>
           <Controller
@@ -76,10 +86,13 @@ export default function Signin() {
             )}
           />
         </FormControl>
-        <Button type="submit" form="signin" variant="contained">
-          sign in
-        </Button>
+        {submissionErrMsg ? (
+          <FormHelperText error>{submissionErrMsg}</FormHelperText>
+        ) : null}
       </form>
+      <Button type="submit" form="signin" variant="contained">
+        sign in
+      </Button>
     </div>
   );
 }
