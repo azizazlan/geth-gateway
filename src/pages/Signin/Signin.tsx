@@ -7,6 +7,7 @@ import { useUserDispatch, useUserSelector } from '../../services/hook';
 import signIn from '../../services/thunks/user/signIn';
 import styles from './styles';
 import { UserState } from '../../services/store';
+import Loader from '../../components/Loader/Loader';
 
 type SignInFields = {
   email: string;
@@ -19,7 +20,9 @@ const schema = Yup.object().shape({
 });
 
 export default function Signin() {
-  const { isSignedIn } = useUserSelector((state: UserState) => state.user);
+  const { isSignedIn, submissionState } = useUserSelector(
+    (state: UserState) => state.user
+  );
   const userDispatch = useUserDispatch();
   const {
     control,
@@ -46,6 +49,10 @@ export default function Signin() {
 
   return (
     <div style={styles.container}>
+      <Loader
+        open={submissionState === 'PENDING'}
+        handleClose={() => console.log('close')}
+      />
       <form id="signin" onSubmit={handleSubmit(onSubmit)}>
         <FormControl fullWidth margin="normal" variant="outlined">
           <InputLabel htmlFor="email">Email</InputLabel>
@@ -69,7 +76,6 @@ export default function Signin() {
             )}
           />
         </FormControl>
-        <div>select org or admin-mampu</div>
         <Button type="submit" form="signin" variant="contained">
           sign in
         </Button>

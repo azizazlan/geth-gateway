@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-/* eslint-disable prettier/prettier */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -8,29 +7,33 @@ type SignInPayload = {
   password: string;
 };
 
-const URL = `http://127.0.0.1:3000/signin`;
-const appPassword = 'AppPassword12!'
-const role = "ORG_USER";
+const URL = `${import.meta.env.VITE_APP_API}/signin`;
+console.log(URL);
+const appPassword = `${import.meta.env.VITE_APP_PASSWORD}`;
+console.log(appPassword);
+const withCredentials = import.meta.env.VITE_APP_ENABLE_SESSION === 'true';
 
 const signIn = createAsyncThunk('signIn', async (payload: SignInPayload) => {
-    const { email, password } = payload;
-    console.log(`email: ${email} password ${password}`)
+  const { email, password } = payload;
+  try {
     const { data } = await axios.post(
       URL,
       {
         appPassword,
         email,
         password,
-        role
       },
       {
         headers: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        // withCredentials: true,
+        withCredentials,
       }
     );
     return data;
+  } catch (error) {
+    return null;
+  }
 });
 export default signIn;
