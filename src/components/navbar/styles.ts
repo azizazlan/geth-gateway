@@ -1,17 +1,13 @@
 import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
-  linksContainer: {},
-  hyperlink: {
-    textDecoration: 'none',
-    color: 'white',
+  toolbarInnerDiv: {
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'row',
   },
-  burgericon: {
-    color: 'white',
-  },
-  contextmenu: {
-    textDecoration: 'none',
-    color: 'black',
+  logoDiv: {
+    flexGrow: 1,
   },
 };
 export default styles;

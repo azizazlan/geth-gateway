@@ -7,7 +7,6 @@ import { AppState } from '../../services/store';
 export default function Signup() {
   const dispatch = useAppDispatch();
   const handleSignUp = () => {
-    console.log('Signed Up');
     dispatch(signup);
   };
   return (
