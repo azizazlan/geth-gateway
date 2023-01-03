@@ -2,6 +2,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import Dashboard from './pages/Dashboard/Dashboard';
 import Landing from './pages/Landing/Landing';
 import Signin from './pages/Signin/Signin';
 import Signup from './pages/Signup/Signup';
@@ -33,6 +34,15 @@ export default function App() {
           <>
             <Navbar />
             <Signin />
+          </>
+        }
+      />
+      <Route
+        path="/dashboard"
+        element={
+          <>
+            <Navbar />
+            <Dashboard />
           </>
         }
       />

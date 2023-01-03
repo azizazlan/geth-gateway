@@ -1,21 +1,33 @@
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as Yup from 'yup';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { Button, FormControl, InputLabel, OutlinedInput } from '@mui/material';
-import { useUserDispatch } from '../../services/hook';
+import { Navigate } from 'react-router-dom';
+import { useUserDispatch, useUserSelector } from '../../services/hook';
 import signIn from '../../services/thunks/user/signIn';
 import styles from './styles';
+import { UserState } from '../../services/store';
 
 type SignInFields = {
   email: string;
   password: string;
 };
 
+const schema = Yup.object().shape({
+  email: Yup.string().required('Please key in email'),
+  password: Yup.string().required('Please key in password'),
+});
+
 export default function Signin() {
+  const { isSignedIn } = useUserSelector((state: UserState) => state.user);
   const userDispatch = useUserDispatch();
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<SignInFields>();
+  } = useForm<SignInFields>({
+    resolver: yupResolver(schema),
+  });
 
   const onSubmit: SubmitHandler<SignInFields> = (data) => {
     const { email, password } = data;
@@ -27,6 +39,10 @@ export default function Signin() {
       })
     );
   };
+
+  if (isSignedIn) {
+    return <Navigate to="/dashboard" />;
+  }
 
   return (
     <div style={styles.container}>
@@ -53,6 +69,7 @@ export default function Signin() {
             )}
           />
         </FormControl>
+        <div>select org or admin-mampu</div>
         <Button type="submit" form="signin" variant="contained">
           sign in
         </Button>
