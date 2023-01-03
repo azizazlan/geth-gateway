@@ -12,9 +12,13 @@ export default function Navbar() {
             <Logo />
           </div>
           <div style={styles.linksDiv}>
-            <Link to="/signup" style={styles.link}>Sign up</Link>
+            <Link to="/signup" style={styles.link}>
+              Sign up
+            </Link>
             <Divider />
-            <Link to="/signin" style={styles.link}>Sign in</Link>
+            <Link to="/signin" style={styles.link}>
+              Sign in
+            </Link>
           </div>
         </div>
       </Toolbar>
