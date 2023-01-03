@@ -5,9 +5,20 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: '100%',
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   logoDiv: {
     flexGrow: 1,
+  },
+  linksDiv: {
+    minWidth: theme.spacing(15),
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  link: {
+    color: 'white',
   },
 };
 export default styles;
