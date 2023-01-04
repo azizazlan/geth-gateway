@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
@@ -50,7 +51,7 @@ export default function Signin() {
   };
 
   if (isSignedIn) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/projects" />;
   }
 
   return (

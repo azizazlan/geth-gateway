@@ -16,20 +16,20 @@ const initialState: UserState = {
   submissionState: 'IDLE',
   submissionErrMsg: null,
   projects: null,
-  isSignedIn: true,
-  // user: null,
-  user: {
-    id: 69,
-    name: 'Jebon bin Muntal',
-    email: 'jebon@gmail.com',
-    jobPosition: 'IT Executive',
-    role: 'ORG_USER',
-    org: {
-      id: 1,
-      name: 'Jabatan Pembangunan Melayu',
-      website: 'https://www.mangkuk.gov.my',
-    },
-  },
+  isSignedIn: false,
+  user: null,
+  // user: {
+  //   id: 69,
+  //   name: 'Jebon bin Muntal',
+  //   email: 'jebon@gmail.com',
+  //   jobPosition: 'IT Executive',
+  //   role: 'ORG_USER',
+  //   org: {
+  //     id: 1,
+  //     name: 'Jabatan Pembangunan Melayu',
+  //     website: 'https://www.mangkuk.gov.my',
+  //   },
+  // },
 };
 
 export const userSlice = createSlice({

@@ -9,7 +9,7 @@ export default function Landing() {
   const { user } = useUserSelector((state: UserState) => state.user);
 
   if (user) {
-    return <Navigate to="/dashboard" />;
+    return <Navigate to="/projects" />;
   }
 
   return (
