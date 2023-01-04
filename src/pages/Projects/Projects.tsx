@@ -4,12 +4,14 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ShapeLineIcon from '@mui/icons-material/ShapeLine';
 import ListItemButton from '@mui/material/ListItemButton';
-import { useUserDispatch, useUserSelector } from '../../../services/hook';
-import { UserState } from '../../../services/store';
-import getProjects from '../../../services/thunks/user/getProjects';
+import { Navigate, useNavigate } from 'react-router-dom';
+import { useUserDispatch, useUserSelector } from '../../services/hook';
+import { UserState } from '../../services/store';
+import getProjects from '../../services/thunks/user/getProjects';
 import styles from './styles';
 
 export default function Projects() {
+  const navigate = useNavigate();
   const { projects, user, submissionState } = useUserSelector(
     (state: UserState) => state.user
   );
@@ -33,8 +35,12 @@ export default function Projects() {
   }
 
   const listProjects = projects.map((p, i) => {
+    const handleClick = () => {
+      navigate('/projects/1');
+    };
+
     return (
-      <ListItemButton key={`${p.id}`}>
+      <ListItemButton key={`${p.id}`} onClick={handleClick}>
         <ListItemAvatar>
           <ShapeLineIcon
             color={p.status === 'APPROVED' ? 'primary' : 'inherit'}

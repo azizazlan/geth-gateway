@@ -23,13 +23,13 @@ function Links() {
 function UserProfile() {
   return (
     <IconButton>
-      <PersonIcon />
+      <PersonIcon style={{ color: 'white' }} />
     </IconButton>
   );
 }
 
 export default function Navbar() {
-  const { isSignedIn  } = useUserSelector((state: UserState) => state.user);
+  const { isSignedIn } = useUserSelector((state: UserState) => state.user);
   return (
     <AppBar position="fixed">
       <Toolbar>

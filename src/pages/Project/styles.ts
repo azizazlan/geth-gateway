@@ -2,10 +2,10 @@ import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
-    minWidth: '200px',
-    margin: theme.spacing(1),
+    marginTop: theme.spacing(9),
+  },
+  formContainer: {
+    marginBottom: theme.spacing(3),
   },
 };
 export default styles;

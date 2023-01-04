@@ -26,7 +26,7 @@ const initialState: UserState = {
     role: 'ORG_USER',
     org: {
       id: 1,
-      name: 'Jabatan Mangkok Ayun',
+      name: 'Jabatan Pembangunan Melayu',
       website: 'https://www.mangkuk.gov.my',
     },
   },

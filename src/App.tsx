@@ -1,11 +1,10 @@
 /* eslint-disable import/no-cycle */
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
-import Dashboard from './pages/Dashboard/Dashboard';
+import Projects from './pages/Projects/Projects';
 import Landing from './pages/Landing/Landing';
 import Signin from './pages/Signin/Signin';
 import Signup from './pages/Signup/Signup';
-
 
 export default function App() {
   return (
@@ -38,11 +37,11 @@ export default function App() {
         }
       />
       <Route
-        path="/dashboard"
+        path="/projects"
         element={
           <>
             <Navbar />
-            <Dashboard />
+            <Projects />
           </>
         }
       />
