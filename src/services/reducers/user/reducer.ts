@@ -4,6 +4,46 @@ import getProjects from '../../thunks/user/getProjects';
 import signIn from '../../thunks/user/signIn';
 import { SubmissionStates } from '../submissionStates';
 
+const dummyUser = {
+  id: 69,
+  name: 'Jebon bin Muntal',
+  email: 'jebon@gmail.com',
+  jobPosition: 'IT Executive',
+  role: 'ORG_USER',
+  org: {
+    id: 1,
+    name: 'Jabatan Pembangunan Melayu',
+    website: 'https://www.mangkuk.gov.my',
+  },
+};
+
+const dummyProjects = [
+  {
+    id: 1,
+    name: 'Projek Sijil Dato',
+    description: 'Memantau gajah-gajah di dalam hutan semenanjung',
+    status: 'PENDING',
+    apiKey: null,
+    createdAt: 'YYYY-MM-DD hh:mm:ss',
+  },
+  {
+    id: 2,
+    name: 'Projek Pekerja Poyo',
+    description: 'Sistem Pensijilan para pekerja bersifat poyo',
+    status: 'APPROVED',
+    apiKey: 'ABCcfdjkslfjdskfj123fkdsff',
+    createdAt: 'YYYY-MM-DD hh:mm:ss',
+  },
+  {
+    id: 3,
+    name: 'Projek KPI',
+    description: 'Sistem Permarkahan KPI Perkerja',
+    status: 'PENDING',
+    apiKey: null,
+    createdAt: 'YYYY-MM-DD hh:mm:ss',
+  },
+];
+
 interface UserState {
   isSignedIn: boolean;
   submissionState: SubmissionStates;
@@ -15,21 +55,11 @@ interface UserState {
 const initialState: UserState = {
   submissionState: 'IDLE',
   submissionErrMsg: null,
-  projects: null,
-  isSignedIn: false,
-  user: null,
-  // user: {
-  //   id: 69,
-  //   name: 'Jebon bin Muntal',
-  //   email: 'jebon@gmail.com',
-  //   jobPosition: 'IT Executive',
-  //   role: 'ORG_USER',
-  //   org: {
-  //     id: 1,
-  //     name: 'Jabatan Pembangunan Melayu',
-  //     website: 'https://www.mangkuk.gov.my',
-  //   },
-  // },
+  // projects: null,
+  projects: dummyProjects,
+  isSignedIn: true,
+  // user: null,
+  user: dummyUser,
 };
 
 export const userSlice = createSlice({

@@ -38,19 +38,24 @@ export default function Projects() {
     return <div style={styles.container}>Loading...</div>;
   }
 
-  const listProjects = projects.map((p, i) => {
-    const handleClick = () => {
-      navigate('/projects/1');
+  const listProjects = projects.map((project, i) => {
+    const { id } = project;
+
+    const handleClick = ({ projectId }: { projectId: string }) => {
+      navigate(`/projects/${projectId}`);
     };
 
     return (
-      <ListItemButton key={`${p.id}`} onClick={handleClick}>
+      <ListItemButton
+        key={`${id}`}
+        onClick={() => handleClick({ projectId: id })}
+      >
         <ListItemAvatar>
           <ShapeLineIcon
-            color={p.status === 'APPROVED' ? 'primary' : 'inherit'}
+            color={project.status === 'APPROVED' ? 'primary' : 'inherit'}
           />
         </ListItemAvatar>
-        <ListItemText primary={p.name} secondary={p.status} />
+        <ListItemText primary={project.name} secondary={project.status} />
       </ListItemButton>
     );
   });
