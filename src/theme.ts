@@ -9,8 +9,8 @@ const createColor = (mainColor: any) =>
 const theme = createTheme({
   palette: {
     mode: 'light',
-    primary: createColor('#192a56'),
-    secondary: createColor('#f1c40f'),
+    primary: createColor('#2f3640'),
+    secondary: createColor('#fff'),
   },
   typography: {
     h1: {
