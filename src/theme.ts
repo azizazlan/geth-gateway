@@ -10,7 +10,7 @@ const theme = createTheme({
   palette: {
     mode: 'light',
     primary: createColor('#2f3640'),
-    secondary: createColor('#fff'),
+    secondary: createColor('#718093'),
   },
   typography: {
     h1: {

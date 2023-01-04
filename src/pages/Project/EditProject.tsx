@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { Button, FormControl, TextField } from '@mui/material';
+import { Alert, Button, FormControl, TextField } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -40,8 +40,8 @@ export default function EditProject() {
     resolver: yupResolver(schema),
     defaultValues: {
       name: project.name,
-      description: project.description
-    }
+      description: project.description,
+    },
   });
 
   const onSubmit: SubmitHandler<EditProjectFields> = (data) => {
@@ -84,10 +84,24 @@ export default function EditProject() {
           />
         </FormControl>
       </form>
-      <Link to={`/projects/${projectId}`}>Close</Link>
-      <Button type="submit" form="editProject">
-        Update
-      </Button>
+      <div style={styles.bottomDiv}>
+        <div style={styles.alertDiv}>
+          <Alert icon={false}>Success updated a project</Alert>
+        </div>
+        <div style={styles.buttons}>
+          <Button
+            color="secondary"
+            variant="contained"
+            component={Link}
+            to="/projects"
+          >
+            close
+          </Button>
+          <Button variant="contained" type="submit" form="editProject">
+            update
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

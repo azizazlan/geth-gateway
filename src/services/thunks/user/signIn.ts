@@ -8,9 +8,7 @@ type SignInPayload = {
 };
 
 const URL = `${import.meta.env.VITE_APP_API}/signin`;
-console.log(URL);
 const appPassword = `${import.meta.env.VITE_APP_PASSWORD}`;
-console.log(appPassword);
 const withCredentials = import.meta.env.VITE_APP_ENABLE_SESSION === 'true';
 
 const signIn = createAsyncThunk('signIn', async (payload: SignInPayload) => {

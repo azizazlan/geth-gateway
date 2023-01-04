@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { FormControl, TextField } from '@mui/material';
+import { Button, FormControl, TextField } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
 import { useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
@@ -21,7 +21,6 @@ export default function Project() {
 
   return (
     <div style={styles.container}>
-      <Link to="/projects">Projects</Link>
       <FormControl fullWidth margin="normal">
         <TextField label="Name" value={project.name} />
       </FormControl>
@@ -34,7 +33,26 @@ export default function Project() {
           value={`${project.apiKey ? project.apiKey : 'PENDING'}`}
         />
       </FormControl>
-      <Link to={`/projects/edit/${projectId}`}>Edit</Link>
+      <div style={styles.bottomDiv}>
+        <div style={styles.alertDiv} />
+        <div style={styles.buttons}>
+          <Button
+            color="secondary"
+            variant="contained"
+            component={Link}
+            to="/projects"
+          >
+            close
+          </Button>
+          <Button
+            variant="contained"
+            component={Link}
+            to={`/projects/edit/${projectId}`}
+          >
+            edit
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }

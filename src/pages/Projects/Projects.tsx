@@ -5,6 +5,7 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ShapeLineIcon from '@mui/icons-material/ShapeLine';
 import ListItemButton from '@mui/material/ListItemButton';
 import { Navigate, useNavigate } from 'react-router-dom';
+import Divider from '@mui/material/Divider';
 import { useUserDispatch, useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
 import getProjects from '../../services/thunks/user/getProjects';
@@ -47,17 +48,20 @@ export default function Projects() {
     };
 
     return (
-      <ListItemButton
-        key={`${id}`}
-        onClick={() => handleClick({ projectId: id })}
-      >
-        <ListItemAvatar>
-          <ShapeLineIcon
-            color={project.status === 'APPROVED' ? 'primary' : 'inherit'}
-          />
-        </ListItemAvatar>
-        <ListItemText primary={project.name} secondary={project.status} />
-      </ListItemButton>
+      <div key={`${id}`}>
+        <ListItemButton
+          key={`${id}`}
+          onClick={() => handleClick({ projectId: id })}
+        >
+          <ListItemAvatar>
+            <ShapeLineIcon
+              color={project.status === 'APPROVED' ? 'primary' : 'inherit'}
+            />
+          </ListItemAvatar>
+          <ListItemText primary={project.name} secondary={project.status} />
+        </ListItemButton>
+        <Divider />
+      </div>
     );
   });
 

@@ -77,14 +77,24 @@ export default function NewProject() {
           />
         </FormControl>
       </form>
-      <Link to="/projects">Close</Link>
-      {submissionState === 'OK' ? (
-        <Alert>New project successfully created!</Alert>
-      ) : (
-        <Button variant="contained" type="submit" form="newProject">
-          create
-        </Button>
-      )}
+      <div style={styles.bottomDiv}>
+        <div style={styles.alertDiv}>
+          <Alert icon={false}>Success created a project</Alert>
+        </div>
+        <div style={styles.buttons}>
+          <Button
+            color="secondary"
+            variant="contained"
+            component={Link}
+            to="/projects"
+          >
+            Close
+          </Button>
+          <Button variant="contained" type="submit" form="newProject">
+            create
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
