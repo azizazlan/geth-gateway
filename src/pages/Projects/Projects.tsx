@@ -9,6 +9,7 @@ import { useUserDispatch, useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
 import getProjects from '../../services/thunks/user/getProjects';
 import styles from './styles';
+import ProjectHeader from './ProjectHeader';
 
 export default function Projects() {
   const navigate = useNavigate();
@@ -62,6 +63,7 @@ export default function Projects() {
 
   return (
     <div style={styles.container}>
+      <ProjectHeader orgName={user.org.name} />
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
         {listProjects}
       </List>
