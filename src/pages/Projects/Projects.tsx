@@ -18,7 +18,7 @@ export default function Projects() {
   const usrDispatch = useUserDispatch();
 
   useEffect(() => {
-    if (projects) {
+    if (projects || !user) {
       return;
     }
 
@@ -29,6 +29,10 @@ export default function Projects() {
       })
     );
   }, [projects, user]);
+
+  if (!user) {
+    return <Navigate to="/signin" />;
+  }
 
   if (!projects || submissionState === 'PENDING') {
     return <div style={styles.container}>Loading...</div>;
