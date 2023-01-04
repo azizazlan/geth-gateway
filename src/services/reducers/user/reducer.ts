@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
+import createProject from '../../thunks/user/createProject';
 import getProjects from '../../thunks/user/getProjects';
 import signIn from '../../thunks/user/signIn';
 import { SubmissionStates } from '../submissionStates';
@@ -108,6 +109,22 @@ export const userSlice = createSlice({
         return;
       }
       state.projects = payload.result.projects;
+      state.submissionState = 'OK';
+    });
+    builder.addCase(createProject.pending, (state, { payload }) => {
+      state.submissionState = 'PENDING';
+      state.submissionErrMsg = null;
+    });
+    builder.addCase(createProject.fulfilled, (state, { payload }) => {
+      if (!payload) {
+        state.submissionState = 'FAILED';
+        return;
+      }
+      if (!state.projects) {
+        state.submissionState = 'FAILED';
+        return;
+      }
+      state.projects = [...state.projects, payload.result.project];
       state.submissionState = 'OK';
     });
   },

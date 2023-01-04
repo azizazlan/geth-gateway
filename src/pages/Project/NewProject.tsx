@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
-import { Button, FormControl, TextField } from '@mui/material';
+import { Alert, Button, FormControl, TextField } from '@mui/material';
 import { Link, useParams } from 'react-router-dom';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
-import { useUserSelector } from '../../services/hook';
+import { useUserDispatch, useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
 import styles from './styles';
+import createProject from '../../services/thunks/user/createProject';
 
 const schema = Yup.object().shape({
   name: Yup.string().required('Please key in name'),
@@ -19,6 +20,10 @@ type EditProjectFields = {
 };
 
 export default function NewProject() {
+  const userDispatch = useUserDispatch();
+  const { user, submissionState } = useUserSelector(
+    (state: UserState) => state.user
+  );
   const {
     control,
     handleSubmit,
@@ -29,6 +34,23 @@ export default function NewProject() {
 
   const onSubmit: SubmitHandler<EditProjectFields> = (data) => {
     console.log(data);
+
+    if (!user) {
+      return;
+    }
+
+    const userId = user.id;
+    const orgId = user.org.id;
+
+    const { name, description } = data;
+    userDispatch(
+      createProject({
+        userId,
+        orgId,
+        name,
+        description,
+      })
+    );
   };
 
   return (
@@ -56,9 +78,13 @@ export default function NewProject() {
         </FormControl>
       </form>
       <Link to="/projects">Close</Link>
-      <Button type="submit" form="newProject">
-        create
-      </Button>
+      {submissionState === 'OK' ? (
+        <Alert>New project successfully created!</Alert>
+      ) : (
+        <Button variant="contained" type="submit" form="newProject">
+          create
+        </Button>
+      )}
     </div>
   );
 }
