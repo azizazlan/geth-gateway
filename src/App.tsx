@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 import Landing from './pages/Landing/Landing';
 import EditProject from './pages/Project/EditProject';
+import NewProject from './pages/Project/NewProject';
 import Project from './pages/Project/Project';
 import Projects from './pages/Projects/Projects';
 import Signin from './pages/Signin/Signin';
@@ -20,6 +21,7 @@ export default function App() {
         <Route index element={<Projects />} />
         <Route path=":projectId" element={<Project />} />
         <Route path="edit/:projectId" element={<EditProject />} />
+        <Route path="new" element={<NewProject />} />
       </Route>
     </Routes>
   );
