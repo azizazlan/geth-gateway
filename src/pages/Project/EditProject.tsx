@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { Alert, Button, FormControl, TextField } from '@mui/material';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -25,7 +25,7 @@ export default function EditProject() {
   const { projects } = useUserSelector((state: UserState) => state.user);
 
   if (!projects) {
-    return <div style={styles.container}>Error</div>;
+    return <Navigate to="/" />;
   }
 
   const project = projects.filter(

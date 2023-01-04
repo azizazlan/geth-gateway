@@ -4,6 +4,7 @@ A web app to allow user to sign up and create project(s) in order to get (RPC) e
 
 TODO:
 
+0 Internationalization (English/Bahasa)
 1 View project
     - API Key
     - network endpoint

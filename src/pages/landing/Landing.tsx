@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { Typography } from '@mui/material';
 import { Navigate } from 'react-router-dom';
 import Montage from '../../components/Montage/Montage';
@@ -6,6 +7,7 @@ import { UserState } from '../../services/store';
 import styles from './styles';
 
 export default function Landing() {
+  const { t } = useTranslation();
   const { user } = useUserSelector((state: UserState) => state.user);
 
   if (user) {
@@ -15,10 +17,7 @@ export default function Landing() {
   return (
     <div style={styles.container}>
       <div style={styles.headline}>
-        <Typography variant="h4">
-          Connect your dApp or web3 solution to the (Ethereum) blockchain
-          network infrastructure.
-        </Typography>
+        <Typography variant="h4">{t('index.headline')}</Typography>
       </div>
       <Montage />
     </div>

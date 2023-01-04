@@ -10,8 +10,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   logoDiv: {
     flexGrow: 1,
   },
-  linksDiv: {
-    minWidth: theme.spacing(15),
+  indexDiv: {
+    minWidth: theme.spacing(27),
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
