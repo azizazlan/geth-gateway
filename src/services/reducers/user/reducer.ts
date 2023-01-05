@@ -32,7 +32,7 @@ const dummyProjects = [
     name: 'Projek Pekerja Poyo',
     description: 'Sistem Pensijilan para pekerja bersifat poyo',
     status: 'APPROVED',
-    apiKey: 'ABCcfdjkslfjdskfj123fkdsff',
+    apiKey: 'XemaX2zoNyQGIoY53Y5i',
     createdAt: 'YYYY-MM-DD hh:mm:ss',
   },
   {
@@ -56,9 +56,9 @@ interface UserState {
 const initialState: UserState = {
   submissionState: 'IDLE',
   submissionErrMsg: null,
-  projects: null,
-  isSignedIn: false,
-  user: null,
+  projects: dummyProjects,
+  isSignedIn: true,
+  user: dummyUser,
 };
 
 export const userSlice = createSlice({

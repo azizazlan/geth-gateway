@@ -83,14 +83,19 @@ export default function NewProject() {
         </div>
         <div style={styles.buttons}>
           <Button
-            color="secondary"
+            color="primary"
             variant="contained"
             component={Link}
             to="/projects"
           >
             Close
           </Button>
-          <Button variant="contained" type="submit" form="newProject">
+          <Button
+            color="secondary"
+            variant="contained"
+            type="submit"
+            form="newProject"
+          >
             create
           </Button>
         </div>

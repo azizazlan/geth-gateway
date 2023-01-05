@@ -90,14 +90,19 @@ export default function EditProject() {
         </div>
         <div style={styles.buttons}>
           <Button
-            color="secondary"
+            color="primary"
             variant="contained"
             component={Link}
             to="/projects"
           >
             close
           </Button>
-          <Button variant="contained" type="submit" form="editProject">
+          <Button
+            color="secondary"
+            variant="contained"
+            type="submit"
+            form="editProject"
+          >
             update
           </Button>
         </div>

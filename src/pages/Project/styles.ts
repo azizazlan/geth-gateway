@@ -2,9 +2,9 @@ import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
-    marginTop: theme.spacing(11),
-    marginLeft: theme.spacing(3),
-    marginRight: theme.spacing(3),
+    marginTop: theme.spacing(15),
+    marginLeft: theme.spacing(5),
+    marginRight: theme.spacing(5),
   },
   formContainer: {
     marginBottom: theme.spacing(3),

@@ -1,22 +1,26 @@
 import { Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import styles from './styles';
+import logo from '../../assets/logo.svg';
 
 export default function Logo() {
   return (
     <div style={styles.container}>
-      <Link to="/">
-        <div>
-          <Typography variant="h4" color="secondary">
-            geth-gateway
-          </Typography>
-        </div>
-        <div>
-          <Typography variant="body2" style={{ color: 'white' }}>
-            MAMPU-Ethereum Network
-          </Typography>
-        </div>
-      </Link>
+      <div style={styles.logoContainer}>
+        <img src={logo} alt="logo" style={styles.logo} />
+      </div>
+      <div style={styles.textContainer}>
+        <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+          <div>
+            <Typography variant="h4">BUNGA RAYA</Typography>
+          </div>
+          <div>
+            <Typography variant="body2" style={{ color: 'white' }}>
+              Ethereum Network Infrastructure
+            </Typography>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -7,10 +7,10 @@ TODO:
 0 Internationalization (English/Bahasa)
 1 View project
     - API Key
-    - network endpoint
+    X network endpoints - test / production
 2 Create project
 3 Update project name, description
-4 Delete project
+X Delete project
 
 5 User signup
 6 User change password

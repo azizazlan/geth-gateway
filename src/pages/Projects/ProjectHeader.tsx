@@ -11,7 +11,13 @@ export default function ProjectHeader(props: ProjectHeaderProps) {
   return (
     <div style={styles.projectHdr}>
       <Typography variant="h5">{orgName}</Typography>
-      <Button component={Link} to="/projects/new" variant="contained">
+      <Button
+        component={Link}
+        to="/projects/new"
+        color="secondary"
+        variant="contained"
+        style={{ color: 'black' }}
+      >
         create new project
       </Button>
     </div>

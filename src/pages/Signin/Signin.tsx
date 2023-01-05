@@ -91,7 +91,7 @@ export default function Signin() {
           <FormHelperText error>{submissionErrMsg}</FormHelperText>
         ) : null}
       </form>
-      <Button type="submit" form="signin" variant="contained">
+      <Button color="secondary" type="submit" form="signin" variant="contained">
         sign in
       </Button>
     </div>

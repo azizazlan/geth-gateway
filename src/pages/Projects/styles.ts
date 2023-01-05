@@ -5,8 +5,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: '100%',
   },
   projectHdr: {
-    margin: theme.spacing(1),
-    marginTop: theme.spacing(12),
+    marginTop: theme.spacing(15),
+    marginLeft: theme.spacing(3),
+    marginRight: theme.spacing(3),
+    marginBottom: theme.spacing(2),
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',

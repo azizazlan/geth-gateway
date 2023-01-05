@@ -11,6 +11,7 @@ import { UserState } from '../../services/store';
 import getProjects from '../../services/thunks/user/getProjects';
 import styles from './styles';
 import ProjectHeader from './ProjectHeader';
+import theme from '../../theme';
 
 export default function Projects() {
   const navigate = useNavigate();
@@ -55,7 +56,7 @@ export default function Projects() {
         >
           <ListItemAvatar>
             <ShapeLineIcon
-              color={project.status === 'APPROVED' ? 'primary' : 'inherit'}
+              color={project.status === 'APPROVED' ? 'secondary' : 'inherit'}
             />
           </ListItemAvatar>
           <ListItemText primary={project.name} secondary={project.status} />
@@ -68,7 +69,13 @@ export default function Projects() {
   return (
     <div style={styles.container}>
       <ProjectHeader orgName={user.org.name} />
-      <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+      <List
+        sx={{
+          marginLeft: `${theme.spacing(1)}`,
+          width: '98%',
+          bgcolor: 'background.paper',
+        }}
+      >
         {listProjects}
       </List>
     </div>
