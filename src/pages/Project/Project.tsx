@@ -2,21 +2,27 @@
 import Snackbar from '@mui/material/Snackbar';
 import InputAdornment from '@mui/material/InputAdornment';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
+import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import {
   Alert,
+  AlertTitle,
   Button,
+  Divider,
   FormControl,
   IconButton,
   OutlinedInput,
   TextField,
+  Typography,
 } from '@mui/material';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
+import ConfirmDialog from '../../components/ConfirmDialog/ConfirmDialog';
 import styles from './styles';
 
 export default function Project() {
+  const [openConfirmDlg, setOpenConfirmDlg] = useState(false);
   const [copiedClipboardDev, setCopiedClipboardDev] = useState(false);
   const [copiedClipboardPro, setCopiedClipboardPro] = useState(false);
   const params = useParams();
@@ -61,8 +67,50 @@ export default function Project() {
     setCopiedClipboardPro(false);
   };
 
+  const handleDelete = () => {
+    // Display user confirmation to delete a project
+    setOpenConfirmDlg(true);
+  };
+
+  const handleCloseConfirmDlg = () => {
+    setOpenConfirmDlg(false);
+  };
+
+  if (project.isDeleted) {
+    // return <Navigate to="/projects" />;
+    return (
+      <div style={styles.container}>
+        <Alert icon={false} color="error">
+          <AlertTitle>
+            <Typography variant="h5">DELETED</Typography>
+          </AlertTitle>
+          Project <b>{project.name}</b> has been deleted
+        </Alert>
+        <div style={styles.bottomDiv}>
+          <div style={styles.leftButtons}>
+            <Button
+              color="primary"
+              variant="contained"
+              component={Link}
+              to="/projects"
+              startIcon={<ArrowBackIosIcon />}
+            >
+              projects
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div style={styles.container}>
+      <ConfirmDialog
+        action="DELETE_PROJECT"
+        projectId={projectId}
+        open={openConfirmDlg}
+        handleClose={handleCloseConfirmDlg}
+      />
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={copiedClipboardDev}
@@ -95,10 +143,15 @@ export default function Project() {
           value={`${project.apiKey ? project.apiKey : 'PENDING'}`}
         />
       </FormControl>
+
+      <Typography variant="h5">Network endpoints</Typography>
+
       <FormControl fullWidth margin="normal">
         <OutlinedInput
           startAdornment={
-            <InputAdornment position="start">Developement</InputAdornment>
+            <InputAdornment position="start" style={{ minWidth: '115px' }}>
+              Development
+            </InputAdornment>
           }
           endAdornment={
             <InputAdornment position="end">
@@ -118,7 +171,9 @@ export default function Project() {
       <FormControl fullWidth margin="normal">
         <OutlinedInput
           startAdornment={
-            <InputAdornment position="start">Production</InputAdornment>
+            <InputAdornment position="start" style={{ minWidth: '115px' }}>
+              Production
+            </InputAdornment>
           }
           endAdornment={
             <InputAdornment position="end">
@@ -136,16 +191,22 @@ export default function Project() {
         />
       </FormControl>
       <div style={styles.bottomDiv}>
-        <div style={styles.alertDiv} />
-        <div style={styles.buttons}>
+        <div style={styles.leftButtons}>
           <Button
             color="primary"
             variant="contained"
             component={Link}
             to="/projects"
+            startIcon={<ArrowBackIosIcon />}
           >
-            close
+            projects
           </Button>
+        </div>
+        <div style={styles.rightButtons}>
+          <Button color="secondary" variant="outlined" onClick={handleDelete}>
+            delete
+          </Button>
+          <Divider style={styles.divider} />
           <Button
             color="secondary"
             variant="contained"

@@ -1,49 +1,12 @@
 /* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
 import createProject from '../../thunks/user/createProject';
+import deleteProject from '../../thunks/user/deleteProject';
 import getProjects from '../../thunks/user/getProjects';
 import signIn from '../../thunks/user/signIn';
 import { SubmissionStates } from '../submissionStates';
-
-const dummyUser = {
-  id: 69,
-  name: 'Jebon bin Muntal',
-  email: 'jebon@gmail.com',
-  jobPosition: 'IT Executive',
-  role: 'ORG_USER',
-  org: {
-    id: 1,
-    name: 'Jabatan Pembangunan Melayu',
-    website: 'https://www.mangkuk.gov.my',
-  },
-};
-
-const dummyProjects = [
-  {
-    id: 1,
-    name: 'Projek Sijil Dato',
-    description: 'Memantau gajah-gajah di dalam hutan semenanjung',
-    status: 'PENDING',
-    apiKey: null,
-    createdAt: 'YYYY-MM-DD hh:mm:ss',
-  },
-  {
-    id: 2,
-    name: 'Projek Pekerja Poyo',
-    description: 'Sistem Pensijilan para pekerja bersifat poyo',
-    status: 'APPROVED',
-    apiKey: 'XemaX2zoNyQGIoY53Y5i',
-    createdAt: 'YYYY-MM-DD hh:mm:ss',
-  },
-  {
-    id: 3,
-    name: 'Projek KPI',
-    description: 'Sistem Permarkahan KPI Perkerja',
-    status: 'PENDING',
-    apiKey: null,
-    createdAt: 'YYYY-MM-DD hh:mm:ss',
-  },
-];
+import dummyUser from './dummyUser';
+import dummyProjects from './dummyProjects';
 
 interface UserState {
   isSignedIn: boolean;
@@ -124,6 +87,37 @@ export const userSlice = createSlice({
       }
       state.projects = [...state.projects, payload.result.project];
       state.submissionState = 'OK';
+    });
+    builder.addCase(deleteProject.pending, (state, { payload }) => {
+      state.submissionState = 'PENDING';
+      state.submissionErrMsg = null;
+    });
+    builder.addCase(deleteProject.fulfilled, (state, { payload }) => {
+      // logic if else here
+      if (payload.status === 'Error') {
+        state.submissionState = 'FAILED';
+        state.submissionErrMsg = 'Failed to delete a project';
+        return;
+      }
+
+      if (!state.projects) {
+        state.submissionState = 'FAILED';
+        state.submissionErrMsg = 'Failed to delete a project';
+        return;
+      }
+
+      state.submissionState = 'OK';
+      state.submissionErrMsg = null;
+
+      const projects = [...state.projects];
+      const updatedProjects = projects.map((p) => {
+        if (p.id === payload.result.deletedProjectId) {
+          p.isDeleted = true;
+        }
+        return p;
+      });
+
+      state.projects = [...updatedProjects];
     });
   },
 });

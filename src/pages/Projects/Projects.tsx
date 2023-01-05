@@ -6,6 +6,7 @@ import ShapeLineIcon from '@mui/icons-material/ShapeLine';
 import ListItemButton from '@mui/material/ListItemButton';
 import { Navigate, useNavigate } from 'react-router-dom';
 import Divider from '@mui/material/Divider';
+import { Typography } from '@mui/material';
 import { useUserDispatch, useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
 import getProjects from '../../services/thunks/user/getProjects';
@@ -38,10 +39,17 @@ export default function Projects() {
   }
 
   if (!projects || submissionState === 'PENDING') {
-    return <div style={styles.container}>Loading...</div>;
+    return <div style={styles.loadingContainer}>Loading...</div>;
   }
 
+  let no = 0;
   const listProjects = projects.map((project, i) => {
+    if (project.isDeleted) {
+      return null;
+    }
+
+    no += 1;
+
     const { id } = project;
 
     const handleClick = ({ projectId }: { projectId: string }) => {
@@ -49,7 +57,8 @@ export default function Projects() {
     };
 
     return (
-      <div key={`${id}`}>
+      <div key={`${id}`} style={styles.listItem}>
+        <Typography>{no}</Typography>
         <ListItemButton
           key={`${id}`}
           onClick={() => handleClick({ projectId: id })}
@@ -71,8 +80,8 @@ export default function Projects() {
       <ProjectHeader orgName={user.org.name} />
       <List
         sx={{
-          marginLeft: `${theme.spacing(1)}`,
-          width: '98%',
+          marginLeft: `${theme.spacing(3)}`,
+          marginRight: `${theme.spacing(3)}`,
           bgcolor: 'background.paper',
         }}
       >

@@ -12,19 +12,21 @@ const styles: { [key: string]: React.CSSProperties } = {
   bottomDiv: {
     display: 'flex',
     flexDirection: 'row',
-    alignItems: 'center',
-    minHeight: theme.spacing(15),
+    marginTop: theme.spacing(3),
   },
-  alertDiv: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexGrow: 1,
-  },
-  buttons: {
-    minWidth: theme.spacing(19),
+  leftButtons: {
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    flexGrow: 1,
+  },
+  rightButtons: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+  },
+  divider: {
+    width: theme.spacing(1),
   },
 };
 export default styles;

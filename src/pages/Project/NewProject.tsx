@@ -78,18 +78,17 @@ export default function NewProject() {
         </FormControl>
       </form>
       <div style={styles.bottomDiv}>
-        <div style={styles.alertDiv}>
-          <Alert icon={false}>Success created a project</Alert>
-        </div>
-        <div style={styles.buttons}>
+        <div style={styles.leftButtons}>
           <Button
             color="primary"
             variant="contained"
             component={Link}
             to="/projects"
           >
-            Close
+            cancel
           </Button>
+        </div>
+        <div style={styles.rightButtons}>
           <Button
             color="secondary"
             variant="contained"

@@ -16,7 +16,6 @@ export default function ProjectHeader(props: ProjectHeaderProps) {
         to="/projects/new"
         color="secondary"
         variant="contained"
-        style={{ color: 'black' }}
       >
         create new project
       </Button>
