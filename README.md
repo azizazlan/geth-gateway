@@ -2,32 +2,48 @@
 
 A web app to allow user to sign up and create project(s) in order to get (RPC) endpoint and API token.
 
-TODO:
+## User
 
-0 Internationalization (English/Bahasa)
-
-1 View project
+1. View project
     - API Key
     X network endpoints - development / production
 
-2 Create project - to implement snackbar alert to inform user a project is created
+2. Create project - to implement snackbar alert to inform user a project is created
 
-3 Update project name, description - to implement snackbar alert to inform user project has been updated
+3. Update project name, description - to implement snackbar alert to inform user project has been updated
 
-X Delete project 
+4. Delete project 
 
-5 User signup
+5. User signup
 
-6 User change password
+6. User change password
 
-7 User edit org name, website
+7. User edit org name, website
 
-8 User sign out
+8. User sign out
 
-X 9 Admin signin
+## Admin
 
-10 Admin view dashboard - network (nivo/network) - display Harddisk, CPU, RAM
+9. Admin signin
 
-11 Admin view and approve projects
+10. Admin view dashboard:
 
-12 Admin view hardware stats after click on a node of the network
+          leftCol  centerCol  rightCol
+        +---------+---------+---------+
+row_1   | Panel_1 | Panel_2 | Panel_3 |
+        +---------+---------+---------+
+row_2   | Panel_4 | Panel_5 | Panel_6 |
+        +---------+---------+---------+
+row_3   |    Table displays nodes     |
+        +---------+---------+---------+
+
+        Panel_1 = No of submitted projects
+        Panel_2 = No of approved projects
+        Panel_3 = No of organizations 
+        Panel_4 = No of active nodes out of total nodes
+        Panel_5 = Chart of disk usages for each node
+        Panel_6 = Chart of RAM usages for each node
+
+11. Admin view and approve projects
+
+12. Admin view hardware stats after click on a node of the network
