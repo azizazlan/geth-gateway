@@ -13,7 +13,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexGrow: 1,
   },
   indexDiv: {
-    minWidth: theme.spacing(37),
+    minWidth: theme.spacing(45),
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',

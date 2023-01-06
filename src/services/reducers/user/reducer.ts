@@ -19,9 +19,9 @@ interface UserState {
 const initialState: UserState = {
   submissionState: 'IDLE',
   submissionErrMsg: null,
-  projects: dummyProjects,
-  isSignedIn: true,
-  user: dummyUser,
+  projects: null,
+  isSignedIn: false,
+  user: null,
 };
 
 export const userSlice = createSlice({
@@ -116,7 +116,6 @@ export const userSlice = createSlice({
         }
         return p;
       });
-
       state.projects = [...updatedProjects];
     });
   },

@@ -14,12 +14,12 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useState } from 'react';
 import { useUserSelector } from '../../services/hook';
 import { UserState } from '../../services/store';
-import ConfirmDialog from '../../components/ConfirmDialog/ConfirmDialog';
 import styles from './styles';
+import ConfirmDialog from '../../components/ConfirmDialog/ConfirmDialog';
 
 export default function Project() {
   const [openConfirmDlg, setOpenConfirmDlg] = useState(false);

@@ -40,6 +40,8 @@ export default function ConfirmDialog(props: ConfirmDialogProps) {
   if (action === 'DELETE_PROJECT') {
     return (
       <Dialog
+        maxWidth="sm"
+        fullWidth
         open={open}
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
@@ -70,6 +72,8 @@ export default function ConfirmDialog(props: ConfirmDialogProps) {
 
   return (
     <Dialog
+      maxWidth="sm"
+      fullWidth
       open={open}
       onClose={handleClose}
       aria-labelledby="alert-dialog-title"

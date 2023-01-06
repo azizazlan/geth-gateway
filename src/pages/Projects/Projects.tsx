@@ -42,13 +42,13 @@ export default function Projects() {
     return <div style={styles.loadingContainer}>Loading...</div>;
   }
 
-  let no = 0;
+  let listNo = 0; // of projects
   const listProjects = projects.map((project, i) => {
     if (project.isDeleted) {
       return null;
     }
 
-    no += 1;
+    listNo += 1;
 
     const { id } = project;
 
@@ -58,7 +58,7 @@ export default function Projects() {
 
     return (
       <div key={`${id}`} style={styles.listItem}>
-        <Typography>{no}</Typography>
+        <Typography>{listNo}</Typography>
         <ListItemButton
           key={`${id}`}
           onClick={() => handleClick({ projectId: id })}
