@@ -1,0 +1,88 @@
+{
+    "uuid": "557868bc-6fc2-4470-ae1f-d2613e900258",
+    "documentation": "Admin signin into geth-gateway app",
+    "method": "post",
+    "endpoint": "admin/signin",
+    "responses": [
+        {
+            "uuid": "92464271-6e56-4443-9a07-72965f5eb66d",
+            "body": "{\n  \"status\": \"Error\",\n  \"result\": null\n}",
+            "latency": 0,
+            "statusCode": 401,
+            "label": "",
+            "headers": [],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [
+                {
+                    "target": "body",
+                    "modifier": "appPassword",
+                    "value": "AppPassword12!",
+                    "invert": true,
+                    "operator": "equals"
+                },
+                {
+                    "target": "body",
+                    "modifier": "email",
+                    "value": "admin@gmail.com",
+                    "invert": true,
+                    "operator": "equals"
+                },
+                {
+                    "target": "body",
+                    "modifier": "password",
+                    "value": "Admin123!",
+                    "invert": true,
+                    "operator": "equals"
+                }
+            ],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+        },
+        {
+            "uuid": "8f35c2ea-5f8e-4bcd-a5f7-86808f331301",
+            "body": "{\n  \"status\": \"OK\",\n  \"result\": {\n    \"user\": {\n      \"id\": 1,\n      \"name\": \"Dr Admin bin Peehadee\",\n      \"email\": \"admin@gmail.com\",\n      \"jobPosition\": \"Penolong Pengarah IT\",\n      \"role\": \"ADMIN_USER\"\n    }\n  }\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "",
+            "headers": [],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [
+                {
+                    "target": "body",
+                    "modifier": "appPassword",
+                    "value": "AppPassword12!",
+                    "invert": false,
+                    "operator": "equals"
+                },
+                {
+                    "target": "body",
+                    "modifier": "email",
+                    "value": "admin@gmail.com",
+                    "invert": false,
+                    "operator": "equals"
+                },
+                {
+                    "target": "body",
+                    "modifier": "password",
+                    "value": "Admin123!",
+                    "invert": false,
+                    "operator": "equals"
+                }
+            ],
+            "rulesOperator": "AND",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+        }
+    ],
+    "enabled": true,
+    "responseMode": null
+}

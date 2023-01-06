@@ -34,7 +34,7 @@ row_1   | Panel_1 | Panel_2 | Panel_3 |
         +---------+---------+---------+
 row_2   | Panel_4 | Panel_5 | Panel_6 |
         +---------+---------+---------+
-row_3   |    Table displays nodes     |
+row_3   |            Nodes            |
         +---------+---------+---------+
 
         Panel_1 = No of submitted projects
