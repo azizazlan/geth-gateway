@@ -11,11 +11,20 @@ const styles: { [key: string]: React.CSSProperties } = {
   row: {
     display: 'flex',
     flexDirection: 'row',
-    border: '1pt solid red',
+    border: '1pt solid black',
     justifyContent: 'space-between',
   },
   column: {
     border: '1pt solid blue',
+  },
+  tableHeader: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: theme.spacing(3),
+  },
+  tableDiv: {
+    marginTop: theme.spacing(3),
   },
 };
 export default styles;

@@ -7,6 +7,7 @@ import Organizations from './Organizations';
 import ActiveNodes from './ActiveNodes';
 import DiskUsages from './DiskUsages';
 import RamUsages from './RamUsages';
+import Nodes from './Nodes';
 import styles from './styles';
 
 export default function Dashboard() {
@@ -39,6 +40,9 @@ export default function Dashboard() {
         <div style={styles.columnn}>
           <RamUsages />
         </div>
+      </div>
+      <div>
+        <Nodes />
       </div>
     </div>
   );
