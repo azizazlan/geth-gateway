@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import signIn from '../../thunks/admin/signIn';
 import { SubmissionStates } from '../submissionStates';
+import dummyAdmin from './dummyAdmin';
 
 interface AdminState {
   isSignedIn: boolean;
@@ -9,8 +10,8 @@ interface AdminState {
 }
 
 const initialState: AdminState = {
-  isSignedIn: false,
-  user: null,
+  isSignedIn: true,
+  user: dummyAdmin,
   submissionState: 'IDLE',
 };
 

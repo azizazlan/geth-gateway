@@ -1,4 +1,6 @@
 import { Navigate } from 'react-router-dom';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import { useAdminSelector } from '../../services/hook';
 import { AdminState } from '../../services/store';
 import SubmittedProjects from './SubmittedProjects';
@@ -9,6 +11,8 @@ import DiskUsages from './DiskUsages';
 import RamUsages from './RamUsages';
 import Nodes from './Nodes';
 import styles from './styles';
+import TotalNodes from './TotalNodes';
+import Endpoints from './Endpoints';
 
 export default function Dashboard() {
   const { isSignedIn } = useAdminSelector((state: AdminState) => state.admin);
@@ -19,31 +23,30 @@ export default function Dashboard() {
 
   return (
     <div style={styles.container}>
-      <div style={styles.row}>
-        <div style={styles.columnn}>
-          <SubmittedProjects />
-        </div>
-        <div style={styles.columnn}>
-          <ApprovedProjects />
-        </div>
-        <div style={styles.columnn}>
-          <Organizations />
-        </div>
-      </div>
-      <div style={styles.row}>
-        <div style={styles.columnn}>
+      <Grid
+        container
+        spacing={{ xs: 2, md: 4 }}
+        columns={{ xs: 4, sm: 8, md: 12 }}
+      >
+        <Grid item xs={2} sm={4} md={3} key="TotalNodes">
+          <Endpoints />
+        </Grid>
+        <Grid item xs={2} sm={4} md={3} key="TotalNodes">
+          <TotalNodes />
+        </Grid>
+        <Grid item xs={2} sm={4} md={3} key="ActiveNodes">
           <ActiveNodes />
-        </div>
-        <div style={styles.columnn}>
-          <DiskUsages />
-        </div>
-        <div style={styles.columnn}>
-          <RamUsages />
-        </div>
-      </div>
-      <div>
-        <Nodes />
-      </div>
+        </Grid>
+        <Grid item xs={2} sm={4} md={3} key="Projects">
+          <SubmittedProjects />
+        </Grid>
+        <Grid item xs={2} sm={4} md={3} key="ApprovedProjects">
+          <ApprovedProjects />
+        </Grid>
+        <Grid item xs={2} sm={4} md={3} key="Organizations">
+          <Organizations />
+        </Grid>
+      </Grid>
     </div>
   );
 }

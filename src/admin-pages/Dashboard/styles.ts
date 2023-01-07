@@ -2,7 +2,7 @@ import theme from '../../theme';
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
-    marginTop: theme.spacing(13),
+    marginTop: theme.spacing(15),
     marginLeft: theme.spacing(3),
     marginRight: theme.spacing(3),
     display: 'flex',
@@ -11,7 +11,6 @@ const styles: { [key: string]: React.CSSProperties } = {
   row: {
     display: 'flex',
     flexDirection: 'row',
-    border: '1pt solid black',
     justifyContent: 'space-between',
   },
   column: {
