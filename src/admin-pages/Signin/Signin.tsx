@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 import { Navigate } from 'react-router-dom';
 import styles from './styles';
-import Loader from '../../components/Loader/Loader';
+import Loader from '../../components/ProgressIndicator/ProgressIndicator';
 import { useAdminDispatch, useAdminSelector } from '../../services/hook';
 import { AdminState } from '../../services/store';
 import signIn from '../../services/thunks/admin/signIn';

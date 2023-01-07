@@ -14,7 +14,7 @@ import { useUserDispatch, useUserSelector } from '../../services/hook';
 import signIn from '../../services/thunks/user/signIn';
 import styles from './styles';
 import { UserState } from '../../services/store';
-import Loader from '../../components/Loader/Loader';
+import ProgressIndicator from '../../components/ProgressIndicator/ProgressIndicator';
 
 type SignInFields = {
   email: string;
@@ -56,7 +56,7 @@ export default function Signin() {
 
   return (
     <div style={styles.container}>
-      <Loader
+      <ProgressIndicator
         open={submissionState === 'PENDING'}
         handleClose={() => console.log('close')}
       />

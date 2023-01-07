@@ -5,7 +5,7 @@ type LoaderProps = {
   handleClose: () => void;
 };
 
-export default function Loader(props: LoaderProps) {
+export default function ProgressIndicator(props: LoaderProps) {
   const { open, handleClose } = props;
 
   return (
