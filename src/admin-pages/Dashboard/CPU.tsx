@@ -1,6 +1,6 @@
 import Card from '@mui/material/Card';
 
-export default function DiskUsages() {
+export default function CPU() {
   return (
     <Card
       sx={{
@@ -12,8 +12,8 @@ export default function DiskUsages() {
       }}
     >
       <iframe
-        title="Disk Usage"
-        src="http://localhost:3000/d-solo/QC1Arp5Wk/geth-dashboard?orgId=1&refresh=30s&from=1673071276788&to=1673071576788&panelId=85"
+        title="CPU"
+        src="http://localhost:3000/d-solo/QC1Arp5Wk/geth-dashboard?orgId=1&refresh=30s&from=1673071403982&to=1673073203982&panelId=106"
         width="450"
         height="230"
         style={{ border: '0' }}

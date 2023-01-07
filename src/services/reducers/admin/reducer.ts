@@ -10,8 +10,12 @@ interface AdminState {
 }
 
 const initialState: AdminState = {
-  isSignedIn: true,
-  user: dummyAdmin,
+  // isSignedIn: true,
+  // user: dummyAdmin,
+  // submissionState: 'IDLE',
+
+  isSignedIn: false,
+  user: null,
   submissionState: 'IDLE',
 };
 
