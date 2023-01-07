@@ -7,7 +7,7 @@ import { Button, CardActions } from '@mui/material';
 
 type NumericalWidgetProps = {
   title: string;
-  value: number;
+  value: string;
   imgSrc: string;
 };
 
@@ -16,8 +16,8 @@ const StyledIcon = styled('div')(({ theme }) => ({
   display: 'flex',
   borderRadius: '50%',
   alignItems: 'center',
-  width: theme.spacing(5),
-  height: theme.spacing(5),
+  width: theme.spacing(2),
+  height: theme.spacing(2),
   justifyContent: 'center',
   marginTop: theme.spacing(3.5),
 }));
@@ -27,7 +27,7 @@ export default function NumericalWidget(props: NumericalWidgetProps) {
   return (
     <Card
       sx={{
-        minWidth: 255,
+        minWidth: 215,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
@@ -40,8 +40,13 @@ export default function NumericalWidget(props: NumericalWidgetProps) {
       <CardContent
         sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
       >
-        <Typography variant="h3">{value}</Typography>
-        <Typography sx={{ fontSize: 15, color: 'grey' }} gutterBottom>
+        <Typography sx={{ fontWeight: 'bold', fontSize: 27 }}>
+          {value}
+        </Typography>
+        <Typography
+          sx={{ fontSize: 14, color: 'grey', fontFamily: 'Oswald' }}
+          gutterBottom
+        >
           {title}
         </Typography>
       </CardContent>

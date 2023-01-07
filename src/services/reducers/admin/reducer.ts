@@ -10,13 +10,12 @@ interface AdminState {
 }
 
 const initialState: AdminState = {
-  // isSignedIn: true,
-  // user: dummyAdmin,
-  // submissionState: 'IDLE',
-
-  isSignedIn: false,
-  user: null,
+  isSignedIn: true,
+  user: dummyAdmin,
   submissionState: 'IDLE',
+
+  // isSignedIn: false,
+  // user: null,
 };
 
 export const adminSlice = createSlice({

@@ -1,16 +1,16 @@
 import NumericalWidget from '../../components/Dashboard/NumericalWidget';
 import bungaRaya from '../../assets/outlined-logo.png';
 
-function SubmittedProjects() {
+function Projects() {
   return (
     <div>
       <NumericalWidget
         imgSrc={bungaRaya}
-        title="Submitted projects"
-        value={10}
+        title="Approved / Submitted projects"
+        value="2/3"
       />
     </div>
   );
 }
 
-export default SubmittedProjects;
+export default Projects;
