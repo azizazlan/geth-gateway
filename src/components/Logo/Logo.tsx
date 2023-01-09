@@ -15,7 +15,7 @@ export default function Logo() {
             <Typography variant="h4">BUNGA RAYA</Typography>
           </div>
           <div>
-            <Typography variant="body2" style={{ color: 'white' }}>
+            <Typography variant="body2" style={{ color: 'black' }}>
               Ethereum Network Infrastructure
             </Typography>
           </div>

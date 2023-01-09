@@ -1,7 +1,7 @@
-import NumericalWidget from '../../components/Dashboard/NumericalWidget';
+import NumericalWidget from './NumericalWidget';
 import bungaRaya from '../../assets/outlined-logo.png';
 
-function Projects() {
+export default function ApprovedProjects() {
   return (
     <div>
       <NumericalWidget
@@ -12,5 +12,3 @@ function Projects() {
     </div>
   );
 }
-
-export default Projects;

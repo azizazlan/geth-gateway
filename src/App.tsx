@@ -1,6 +1,6 @@
 /* eslint-disable import/no-cycle */
 import { Routes, Route } from 'react-router-dom';
-import DefaultLayout from './layouts/DefaultLayout';
+import Layout from './layouts/Layout';
 import Landing from './pages/Landing/Landing';
 import EditProject from './pages/Project/EditProject';
 import NewProject from './pages/Project/NewProject';
@@ -14,11 +14,11 @@ import AdminLayout from './layouts/AdminLayout';
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<DefaultLayout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<Landing />} />
         <Route path="signin" element={<Signin />} />
       </Route>
-      <Route path="/projects" element={<DefaultLayout />}>
+      <Route path="/projects" element={<Layout />}>
         <Route index element={<Projects />} />
         <Route path=":projectId" element={<Project />} />
         <Route path="edit/:projectId" element={<EditProject />} />

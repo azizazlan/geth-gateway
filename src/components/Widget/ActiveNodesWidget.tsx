@@ -1,4 +1,4 @@
-import NumericalWidget from '../../components/Dashboard/NumericalWidget';
+import NumericalWidget from './NumericalWidget';
 import ethereum from '../../assets/eth-logo.png';
 
 export default function ActiveNodes() {

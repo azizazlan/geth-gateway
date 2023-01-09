@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type IframeProps = {
   iframeTitle: string;
@@ -11,6 +11,7 @@ type IframeProps = {
 };
 
 function Iframe(props: IframeProps) {
+  const [loading, setLoading] = useState(true);
   const { iframeSrc, headers, iframeTitle, iframeWidth, iframeHeight } = props;
 
   const iframe: any = React.createRef();
@@ -34,22 +35,36 @@ function Iframe(props: IframeProps) {
         frame.document.write(response);
         frame.document.close();
       })
-      .catch((e) => console.log(`${e}`));
+      .catch((e) => {
+        setLoading(false);
+        console.log(`${e}`);
+      });
   };
 
   useEffect(() => {
     get.current();
   }, []);
 
+  const hideProgressIndicator = () => {
+    setLoading(false);
+  };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
-    <iframe
-      src={iframeSrc}
-      ref={iframe}
-      title={iframeTitle}
-      width={iframeWidth}
-      height={iframeHeight}
-      style={{ border: '0' }}
-    />
+    <div>
+      <iframe
+        src={iframeSrc}
+        ref={iframe}
+        title={iframeTitle}
+        width={iframeWidth}
+        height={iframeHeight}
+        style={{ border: '0' }}
+        onLoad={hideProgressIndicator}
+      />
+    </div>
   );
 }
 

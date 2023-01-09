@@ -1,14 +1,6 @@
 /* eslint-disable no-console */
 import { Link } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Divider,
-  IconButton,
-  Switch,
-  Button,
-  Typography,
-} from '@mui/material';
+import { AppBar, Toolbar, IconButton, Button, Typography } from '@mui/material';
 import LanguageIcon from '@mui/icons-material/Language';
 import PersonIcon from '@mui/icons-material/Person';
 import { useState } from 'react';
@@ -33,8 +25,8 @@ function IndexMenu() {
   return (
     <div style={styles.indexDiv}>
       <Button
+        sx={{ backgroundColor: 'black', color: 'white' }}
         variant="contained"
-        color="secondary"
         component={Link}
         to="/signup"
       >
@@ -62,10 +54,10 @@ function UserProfile() {
   );
 }
 
-export default function Navbar() {
+export default function Header() {
   const { isSignedIn } = useUserSelector((state: UserState) => state.user);
   return (
-    <AppBar position="fixed">
+    <AppBar position="fixed" elevation={0}>
       <Toolbar>
         <div style={styles.toolbarInnerDiv}>
           <div style={styles.logoDiv}>

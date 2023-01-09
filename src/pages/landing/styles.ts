@@ -6,7 +6,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     flexDirection: 'row',
     marginTop: theme.spacing(9),
     backgroundColor: '#fc5c65',
-    background: 'linear-gradient(to left, #ff416c, #fc5c65)',
+    background: 'linear-gradient(to right, #FFC312, #fc5c65)',
     height: '675px',
   },
   topHeadlineText: {

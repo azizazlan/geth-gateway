@@ -1,7 +1,7 @@
 import Card from '@mui/material/Card';
-import Iframe from '../../components/Iframe/Iframe';
+import Iframe from '../Iframe/Iframe';
 
-export default function Memory() {
+export default function Disk() {
   const to = new Date().getTime() - 1 * 60 * 1000; // a minute delay
   const from = to - 30 * 60 * 1000;
   const token =
@@ -18,8 +18,8 @@ export default function Memory() {
       }}
     >
       <Iframe
-        iframeTitle="Memory"
-        iframeSrc={`http://localhost:3000/d-solo/QC1Arp5Wk/geth-dashboard?orgId=1&refresh=30s&from=${from}&to=${to}&panelId=107`}
+        iframeTitle="Disk"
+        iframeSrc={`http://localhost:3000/d-solo/QC1Arp5Wk/geth-dashboard?orgId=1&refresh=1m&from=${from}&to=${to}&panelId=106`}
         iframeWidth="450"
         iframeHeight="250"
         headers={{
