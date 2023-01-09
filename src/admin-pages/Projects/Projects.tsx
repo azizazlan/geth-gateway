@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useEffect } from 'react';
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 import getProjects from '../../services/thunks/admin/getProjects';
 import styles from './styles';
 import { useAdminDispatch, useAdminSelector } from '../../services/hook';
@@ -25,8 +25,8 @@ const columns: GridColDef[] = [
 ];
 
 export default function Projects() {
+  const navigate = useNavigate();
   const windowDimension = getWindowDimensions();
-  console.log(windowDimension);
   const dispatch = useAdminDispatch();
   const { projects, user, submissionState } = useAdminSelector(
     (state: AdminState) => state.admin
@@ -53,13 +53,20 @@ export default function Projects() {
     return <div style={styles.loadingContainer}>Loading...</div>;
   }
 
+  const handleClick = (p) => {
+    if (p.field !== 'name') return;
+    const projectId = p.row.id;
+    navigate(`/admin/projects/${projectId}`);
+  };
+
   return (
-    <div style={{ height: `${windowDimension.height-120}px`, width: '100%' }}>
+    <div style={{ height: `${windowDimension.height - 120}px`, width: '100%' }}>
       <DataGrid
         rows={projects}
         columns={columns}
         pageSize={15}
         rowsPerPageOptions={[5]}
+        onCellClick={handleClick}
       />
     </div>
   );

@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { ethers } from 'ethers';
 
 type SignInPayload = {
   userId: string; // admin's user id
@@ -14,6 +15,13 @@ const withCredentials = import.meta.env.VITE_APP_ENABLE_SESSION === 'true';
 const getProjects = createAsyncThunk(
   'admin.getProjects',
   async (payload: SignInPayload) => {
+
+    const provider = ethers.providers.getDefaultProvider(
+      'http://localhost:8545'
+    );
+    const netId = await provider.getNetwork();
+    console.log(netId);
+
     const { userId } = payload;
     console.log(`userId ${userId}`);
     try {

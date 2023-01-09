@@ -100,7 +100,10 @@ export default function AdminDrawer(props: AdminDrawerProps) {
             alignItems: 'center',
           }}
         >
-          <Avatar src="/broken-image.jpg" sx={{ marginBottom: 1 }} />
+          <Avatar
+            sx={{ width: 56, height: 56, marginBottom: 1 }}
+            src="../../assets/imgs/jackSparrow.png"
+          />
           {user ? <Typography variant="body2">{user.email}</Typography> : null}
         </Box>
         <Divider />
@@ -146,6 +149,32 @@ export default function AdminDrawer(props: AdminDrawerProps) {
                 />
               </ListItemButton>
             </List>
+          </List>
+        </Box>
+        <Box sx={{ margin: 1 }}>
+          <List>
+            <Divider />
+            <ListItem key="account" disablePadding>
+              <ListItemButton>
+                <ListItemText
+                  primary={<ListItemPrimaryText label="Account" />}
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem key="settings" disablePadding>
+              <ListItemButton onClick={() => handleClick('projects')}>
+                <ListItemText
+                  primary={<ListItemPrimaryText label="Settings" />}
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem key="signout" disablePadding>
+              <ListItemButton onClick={() => handleClick('projects')}>
+                <ListItemText
+                  primary={<ListItemPrimaryText label="Sign out" />}
+                />
+              </ListItemButton>
+            </ListItem>
           </List>
         </Box>
         <Box sx={{ margin: 3 }}>

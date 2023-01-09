@@ -28,22 +28,6 @@ A web app to allow user to sign up and create project(s) in order to get (RPC) e
 
 10. Admin view dashboard:
 
-          leftCol  centerCol  rightCol
-        +---------+---------+---------+
-row_1   | Panel_1 | Panel_2 | Panel_3 |
-        +---------+---------+---------+
-row_2   | Panel_4 | Panel_5 | Panel_6 |
-        +---------+---------+---------+
-row_3   |            Nodes            |
-        +---------+---------+---------+
-
-        Panel_1 = No of submitted projects
-        Panel_2 = No of approved projects
-        Panel_3 = No of organizations 
-        Panel_4 = No of active nodes out of total nodes
-        Panel_5 = Chart of disk usages for each node
-        Panel_6 = Chart of RAM usages for each node
-
 11. Admin view and approve projects
 
 12. Admin view hardware stats after click on a node of the network

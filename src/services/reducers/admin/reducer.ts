@@ -28,6 +28,13 @@ export const adminSlice = createSlice({
   initialState,
   reducers: {
     reset: () => initialState,
+    getProject: (state, payload) => {
+      // from payload we can get projectId
+      if (!state.projects) {
+        return null;
+      }
+      return state.projects[0];
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(signIn.pending, (state, { payload }) => {
@@ -64,5 +71,5 @@ export const adminSlice = createSlice({
   },
 });
 
-export const { reset } = adminSlice.actions;
+export const { reset, getProject } = adminSlice.actions;
 export default adminSlice.reducer;
