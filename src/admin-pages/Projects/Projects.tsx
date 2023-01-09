@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import { useEffect } from 'react';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { Navigate, useNavigate } from 'react-router-dom';
+import { Typography } from '@mui/material';
 import getProjects from '../../services/thunks/admin/getProjects';
 import styles from './styles';
 import { useAdminDispatch, useAdminSelector } from '../../services/hook';
@@ -16,12 +17,25 @@ function getWindowDimensions() {
 }
 
 const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', width: 70 },
-  { field: 'name', headerName: 'Project name', width: 170 },
+  { field: 'id', headerName: 'Id', width: 70 },
+  {
+    field: 'name',
+    headerName: 'Project name',
+    width: 170,
+    renderCell: (params: GridRenderCellParams<Date>) => {
+      return (
+        <Typography
+          sx={{ fontSize: '11pt', color: '#3498db', cursor: 'pointer' }}
+        >
+          {params.row.name}
+        </Typography>
+      );
+    },
+  },
   { field: 'description', headerName: 'Description', width: 500 },
   { field: 'status', headerName: 'Status', width: 130 },
   { field: 'apiKey', headerName: 'API Key', width: 130 },
-  { field: 'createdAt', headerName: 'Created at', width: 130 },
+  { field: 'createdAt', headerName: 'Created at', width: 215 },
 ];
 
 export default function Projects() {
