@@ -10,6 +10,7 @@ import Signin from './pages/Signin/Signin';
 import AdminSignin from './admin-pages/Signin/Signin';
 import Dashboard from './admin-pages/Dashboard/Dashboard';
 import AdminLayout from './layouts/AdminLayout';
+import AdminProjects from './admin-pages/Projects/Projects';
 
 export default function App() {
   return (
@@ -27,6 +28,9 @@ export default function App() {
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminSignin />} />
         <Route path="dashboard" element={<Dashboard />} />
+      </Route>
+      <Route path="/admin/projects" element={<AdminLayout />}>
+        <Route index element={<AdminProjects />} />
       </Route>
     </Routes>
   );

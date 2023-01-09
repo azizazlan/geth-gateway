@@ -1,0 +1,70 @@
+{
+  "status": "OK",
+  "result": {
+    "projects": [
+      {
+        "id": 1,
+        "name": "Sistem Pensijilan Gelaran Darjah Kehormat",
+        "description": "Memantau dato-dato palsu, perasuah dan conmen di dalam hutan semenanjung",
+        "status": "PENDING",
+        "apiKey": null,
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      },
+      {
+        "id": 2,
+        "name": "Sistem Pensijilan Pekerja Poyo",
+        "description": "Sistem Pensijilan para pekerja bersifat poyo, floaters dan suka membodek boss",
+        "status": "APPROVED",
+        "apiKey": "ABCcfdjkslfjdskfj123fkdsff",
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      },
+      {
+        "id": 3,
+        "name": "Sistem Pensijilan Virus Zombie",
+        "description": "Sistem pengawalan pendatang dan pelawat asing yang sihat",
+        "status": "PENDING",
+        "apiKey": null,
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      },
+      {
+        "id": 4,
+        "name": "Medical Verification for Sick Leave (aka MC)",
+        "description": "Ensure document issued by GP is genuine",
+        "status": "PENDING",
+        "apiKey": null,
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      },
+      {
+        "id": 5,
+        "name": "Malaysian Medical Council Practitioner Certificates",
+        "description": "Ensure doctors are real doctors not phd holders",
+        "status": "PENDING",
+        "apiKey": null,
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      },
+      {
+        "id": 6,
+        "name": "WHO Certificates",
+        "description": "WHO volunteers ",
+        "status": "PENDING",
+        "apiKey": null,
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      },
+      {
+        "id": 7,
+        "name": "Test Project",
+        "description": "Test project",
+        "status": "PENDING",
+        "apiKey": null,
+        "createdAt": "YYYY-MM-DD hh:mm:ss",
+        "isDeleted": false
+      }
+    ]
+  }
+}

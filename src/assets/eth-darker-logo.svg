@@ -3,11 +3,11 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="32" height="32" viewBox="0, 0, 32, 32">
   <g id="Image">
     <g>
-      <path d="M6.635,16.915 L16.52,1.455 L26.365,16.955 L16.52,22.53 L6.635,16.915 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M6.635,18.497 L16.441,24.23 L26.365,18.418 L16.48,31.545 L6.635,18.497 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16.659,12.434 L6.635,16.915 L16.659,12.434 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16.659,12.434 L26.365,16.955 L16.659,12.434 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16.43,1.455 L16.43,22.53" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1.635,16.915 L11.52,1.455 L21.365,16.955 L11.52,22.53 L1.635,16.915 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M1.635,18.497 L11.441,24.23 L21.365,18.418 L11.48,31.545 L1.635,18.497 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11.659,12.434 L1.635,16.915 L11.659,12.434 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11.659,12.434 L21.365,16.955 L11.659,12.434 z" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M11.43,1.455 L11.43,22.53" fill-opacity="0" stroke="#9973FF" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
   </g>
 </svg>

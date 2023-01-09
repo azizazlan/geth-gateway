@@ -1,0 +1,74 @@
+{
+    "uuid": "ee0ec326-f993-4a4c-8c97-49a78d1d40ae",
+    "documentation": "Admin - List of project for an organisation",
+    "method": "post",
+    "endpoint": "admin/projects",
+    "responses": [
+        {
+            "uuid": "55e40541-9d79-4f2f-9ff5-997a14f61c42",
+            "body": "{\n  \"status\": \"OK\",\n  \"result\": {\n    \"projects\": [\n        {{#repeat 200}}\n        {\n          \"id\": {{@index}},\n          \"name\": \"Project {{faker 'random.word'}}\",\n          \"description\": \"{{faker 'lorem.paragraph'}}\",\n          \"status\": \"PENDING\",\n          \"apiKey\": null,\n          \"createdAt\": \"{{faker 'date.past'}}\",\n          \"isDeleted\": false\n        },\n        {{/repeat}}\n    ]\n  }\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "",
+            "headers": [],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": true,
+            "rules": [
+                {
+                    "target": "body",
+                    "modifier": "appPassword",
+                    "value": "AppPassword12!",
+                    "invert": false,
+                    "operator": "equals"
+                },
+                {
+                    "target": "body",
+                    "modifier": "userId",
+                    "value": "1",
+                    "invert": false,
+                    "operator": "equals"
+                }
+            ],
+            "rulesOperator": "AND",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": false
+        },
+        {
+            "uuid": "e49fd9e7-c64b-4f60-8f09-fa04e95f1464",
+            "body": "{\n  \"status\": \"Error\",\n  \"message\": \"Invalid credential\",\n  \"result\": null,\n}",
+            "latency": 0,
+            "statusCode": 200,
+            "label": "Error",
+            "headers": [],
+            "bodyType": "INLINE",
+            "filePath": "",
+            "databucketID": "",
+            "sendFileAsBody": false,
+            "rules": [
+                {
+                    "target": "body",
+                    "modifier": "appPassword",
+                    "value": "AppPassword12!",
+                    "invert": true,
+                    "operator": "equals"
+                },
+                {
+                    "target": "body",
+                    "modifier": "userId",
+                    "value": "1",
+                    "invert": true,
+                    "operator": "equals"
+                }
+            ],
+            "rulesOperator": "OR",
+            "disableTemplating": false,
+            "fallbackTo404": false,
+            "default": true
+        }
+    ],
+    "enabled": true,
+    "responseMode": null
+}

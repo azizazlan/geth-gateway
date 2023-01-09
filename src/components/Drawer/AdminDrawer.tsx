@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { styled, useTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -13,6 +13,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar/Avatar';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import ethereumLogo from '../../assets/eth-darker-logo.svg';
 import logo32 from '../../assets/logo-32.svg';
 import { DRAWER_WIDTH } from '../Header/AdminHeader';
@@ -47,6 +48,11 @@ type AdminDrawerProps = {
 export default function AdminDrawer(props: AdminDrawerProps) {
   const theme = useTheme();
   const { open, handleDrawerClose, user } = props;
+  const navigate = useNavigate();
+
+  const handleClick = (pathname: string) => {
+    navigate(`/admin/${pathname}`);
+  };
 
   return (
     <Drawer
@@ -100,6 +106,16 @@ export default function AdminDrawer(props: AdminDrawerProps) {
         <Divider />
         <Box sx={{ flexGrow: 1 }}>
           <List>
+            <ListItem key="dashboard" disablePadding>
+              <ListItemButton onClick={() => handleClick('dashboard')}>
+                <ListItemIcon>
+                  <DashboardIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary={<ListItemPrimaryText label="Dashboard" />}
+                />
+              </ListItemButton>
+            </ListItem>
             <ListItem key="gethNodes" disablePadding>
               <ListItemButton>
                 <ListItemIcon>
@@ -109,7 +125,7 @@ export default function AdminDrawer(props: AdminDrawerProps) {
               </ListItemButton>
             </ListItem>
             <ListItem key="projects" disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => handleClick('projects')}>
                 <ListItemIcon>
                   <img src={logo32} alt="bunga raya logo" />
                 </ListItemIcon>
