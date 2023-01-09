@@ -20,8 +20,8 @@ export default function Memory() {
       <Iframe
         iframeTitle="Memory"
         iframeSrc={`http://localhost:3000/d-solo/QC1Arp5Wk/geth-dashboard?orgId=1&refresh=1m&from=${from}&to=${to}&panelId=107`}
-        iframeWidth="465"
-        iframeHeight="250"
+        iframeWidth="395"
+        iframeHeight="270"
         headers={{
           Authorization: `Bearer ${token}`,
           Accept: 'application/json',

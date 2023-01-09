@@ -1,14 +1,13 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
-import { Button, CardActions } from '@mui/material';
 
 type NumericalWidgetProps = {
   title: string;
   value: string;
   imgSrc: string;
+  warning: boolean;
 };
 
 const StyledIcon = styled('div')(({ theme }) => ({
@@ -23,38 +22,49 @@ const StyledIcon = styled('div')(({ theme }) => ({
 }));
 
 export default function NumericalWidget(props: NumericalWidgetProps) {
-  const { title, value, imgSrc } = props;
+  const { title, value, warning, imgSrc } = props;
   return (
     <Card
+      elevation={1}
       sx={{
-        minWidth: 215,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        minWidth: 115,
+        minHeight: 135,
+        textAlign: 'center',
       }}
     >
-      <StyledIcon>
-        <img src={imgSrc} alt="Eth logo" />
-      </StyledIcon>
-      <CardContent
-        sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      <Typography
+        sx={{
+          marginTop: 1.5,
+          fontSize: 14,
+          color: 'black',
+          fontWeight: 'bold',
+          color: '#2f3640',
+        }}
       >
-        <Typography sx={{ fontWeight: 'bold', fontSize: 27 }}>
+        {title}
+      </Typography>
+      {warning ? (
+        <Typography
+          sx={{
+            marginTop: 2,
+            fontWeight: 'bold',
+            fontSize: 47,
+            color: '#e84118',
+          }}
+        >
           {value}
         </Typography>
+      ) : (
         <Typography
-          sx={{ fontSize: 14, color: 'grey', fontFamily: 'Oswald' }}
-          gutterBottom
+          sx={{
+            marginTop: 2,
+            fontWeight: 'bold',
+            fontSize: 47,
+          }}
         >
-          {title}
+          {value}
         </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small" color="secondary">
-          details
-        </Button>
-      </CardActions>
+      )}
     </Card>
   );
 }

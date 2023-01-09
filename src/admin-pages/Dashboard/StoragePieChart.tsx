@@ -1,12 +1,21 @@
-import { Typography } from '@mui/material';
-import Box from '@mui/material/Box';
+import { Card } from '@mui/material';
 import PieChart from '../../components/Chart/PieChart';
 import data from './dummyStorageData';
 
 export default function StoragePieChart() {
   return (
-    <Box sx={{ width: '375px', height: '275px' }}>
+    <Card
+      elevation={0}
+      sx={{
+        width: 400,
+        height: 235,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
       <PieChart data={data} />
-    </Box>
+    </Card>
   );
 }

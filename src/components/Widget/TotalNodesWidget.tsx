@@ -1,10 +1,10 @@
 import NumericalWidget from './NumericalWidget';
 import ethereum from '../../assets/eth-logo.png';
 
-export default function ActiveEndpoints() {
+export default function TotalNodes() {
   return (
     <div>
-      <NumericalWidget imgSrc={ethereum} title="Active endpoints" value="1" />
+      <NumericalWidget imgSrc={ethereum} title="Total nodes" value="5" />
     </div>
   );
 }

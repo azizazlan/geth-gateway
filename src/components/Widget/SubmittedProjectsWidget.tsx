@@ -1,13 +1,13 @@
 import NumericalWidget from './NumericalWidget';
 import bungaRaya from '../../assets/outlined-logo.png';
 
-export default function ApprovedProjects() {
+export default function SubmittedProjects() {
   return (
     <div>
       <NumericalWidget
         imgSrc={bungaRaya}
-        title="Approved projects"
-        value="20"
+        title="Submitted projects"
+        value="51"
       />
     </div>
   );

@@ -7,6 +7,14 @@ import { useAdminSelector } from '../services/hook';
 import { AdminState } from '../services/store';
 import AdminDrawer from '../components/Drawer/AdminDrawer';
 
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = window;
+  return {
+    width,
+    height,
+  };
+}
+
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
   open?: boolean;
 }>(({ theme, open }) => ({
@@ -39,6 +47,7 @@ export default function AdminLayout() {
   const { isSignedIn } = useAdminSelector((state: AdminState) => state.admin);
   const { user } = useAdminSelector((state: AdminState) => state.admin);
   const [open, setOpen] = useState(true);
+  const dimension = getWindowDimensions();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -58,7 +67,14 @@ export default function AdminLayout() {
   }
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        // backgroundColor: '#ecf0f1',
+        // background: 'linear-gradient(to bottom, #ece9e6, #ffffff)',
+        height: `${dimension.height}px`,
+      }}
+    >
       <CssBaseline />
       <AdminHeader open={open} handleDrawerOpen={handleDrawerOpen} />
       <AdminDrawer
