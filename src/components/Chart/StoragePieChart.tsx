@@ -1,6 +1,6 @@
 import { Card, Typography } from '@mui/material';
 import PieChart from './PieChart';
-import data from '../../admin-pages/Dashboard/dummyStorageData';
+import data from './dummyStorageData';
 
 export default function StoragePieChart() {
   return (
