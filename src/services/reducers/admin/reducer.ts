@@ -59,8 +59,6 @@ export const adminSlice = createSlice({
       state.submissionState = 'PENDING';
     });
     builder.addCase(getProjects.fulfilled, (state, { payload }) => {
-      // state.submissionState = 'OK';
-      console.log(payload);
       if (payload.status === 'Error') {
         state.submissionState = 'FAILED';
         state.projects = null;

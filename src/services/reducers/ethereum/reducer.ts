@@ -25,7 +25,6 @@ export const ethereumSlice = createSlice({
     });
     builder.addCase(getNetworkId.fulfilled, (state, { payload }) => {
       // TODO : Implement error case
-      console.log(payload);
       state.submissionState = 'OK';
       state.networkId = payload;
     });
