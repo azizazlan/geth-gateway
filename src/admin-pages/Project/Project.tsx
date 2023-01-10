@@ -3,9 +3,19 @@ import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import Button from '@mui/material/Button';
+import { FormControl, InputLabel, OutlinedInput } from '@mui/material';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { useAdminDispatch, useAdminSelector } from '../../services/hook';
 import { AdminState } from '../../services/store';
 import { getProject } from '../../services/reducers/admin/reducer';
+import styles from '../Signin/styles';
+
+type ProjectFields = {
+  name: string;
+  description: string;
+  status: string;
+  createdAt: string;
+};
 
 export default function Page() {
   const params = useParams();
@@ -20,15 +30,88 @@ export default function Page() {
 
   const { name, description, status, createdAt } = project;
 
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ProjectFields>({
+    defaultValues: {
+      name,
+      description,
+      status,
+      createdAt,
+    },
+  });
+
+  const onSubmit: SubmitHandler<ProjectFields> = (data) => {
+    const { name, description } = data;
+    // TODO dispatch to update - approve the project
+    console.log(data);
+    // dispatch(approveProject({
+    //  projectId
+    // }))
+
+    // Create approveProject.ts thunk in services/thunk/admin
+  };
+
   return (
     <Box>
-      Farabi to do react-hook-form that allow user to click APPROVE button!
-      <br />
-      {name},
-      <br />
-      {description},
-      <br />
-      <Button variant="contained" type="submit">
+      <form
+        style={styles.formContainer}
+        id="formApprove"
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel htmlFor="email">Name</InputLabel>
+          <Controller
+            name="name"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <OutlinedInput label="Name" id="name" {...field} />
+            )}
+          />
+        </FormControl>
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel htmlFor="description">Description</InputLabel>
+          <Controller
+            name="description"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <OutlinedInput
+                multiline
+                label="Description"
+                id="description"
+                {...field}
+              />
+            )}
+          />
+        </FormControl>
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel htmlFor="status">Status</InputLabel>
+          <Controller
+            name="status"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <OutlinedInput label="Status" id="status" {...field} />
+            )}
+          />
+        </FormControl>
+        <FormControl fullWidth margin="normal" variant="outlined">
+          <InputLabel htmlFor="createdAt">Created at</InputLabel>
+          <Controller
+            name="createdAt"
+            defaultValue=""
+            control={control}
+            render={({ field }) => (
+              <OutlinedInput label="CreatedAt" id="createdAt" {...field} />
+            )}
+          />
+        </FormControl>
+      </form>
+      <Button variant="contained" type="submit" form="formApprove">
         approve
       </Button>
     </Box>
