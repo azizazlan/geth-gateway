@@ -8,10 +8,17 @@ import {
   Typography,
   ListItemIcon,
 } from '@mui/material';
-import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useNavigate } from 'react-router-dom';
-import ethereumLogo from '../../assets/eth-darker-logo.svg';
-import logo32 from '../../assets/logo-32.svg';
+import {
+  FaProjectDiagram,
+  FaEthereum,
+  FaBorderAll,
+  FaCog,
+  FaUserCog,
+  FaConnectdevelop,
+  FaNetworkWired,
+  FaFileContract,
+} from 'react-icons/fa';
 
 interface PrimaryTextProps {
   label: string;
@@ -19,7 +26,7 @@ interface PrimaryTextProps {
 
 function ListItemPrimaryText({ label }: PrimaryTextProps) {
   return (
-    <Typography component="span" variant="body2">
+    <Typography component="span" variant="body2" sx={{ fontSize: 14 }}>
       {label}
     </Typography>
   );
@@ -39,7 +46,7 @@ export default function AdminDrawerMenus() {
           <ListItem key="dashboard" disablePadding>
             <ListItemButton onClick={() => handleClick('dashboard')}>
               <ListItemIcon>
-                <DashboardIcon />
+                <FaBorderAll />
               </ListItemIcon>
               <ListItemText
                 primary={<ListItemPrimaryText label="Dashboard" />}
@@ -49,15 +56,49 @@ export default function AdminDrawerMenus() {
           <ListItem key="gethNodes" disablePadding>
             <ListItemButton onClick={() => handleClick('nodes')}>
               <ListItemIcon>
-                <img src={ethereumLogo} alt="ethereum logo" />
+                <FaEthereum />
               </ListItemIcon>
-              <ListItemText primary={<ListItemPrimaryText label="Nodes" />} />
+              <ListItemText
+                primary={<ListItemPrimaryText label="Ethereum network" />}
+              />
             </ListItemButton>
           </ListItem>
+          <List component="div" disablePadding>
+            <ListItemButton
+              sx={{ pl: 9 }}
+              onClick={() => handleClick('nodes/production')}
+            >
+              <ListItemIcon>
+                <FaConnectdevelop />
+              </ListItemIcon>
+              <ListItemText
+                primary={<ListItemPrimaryText label="Production" />}
+              />
+            </ListItemButton>
+            <ListItemButton
+              sx={{ pl: 9 }}
+              onClick={() => handleClick('nodes/development')}
+            >
+              <ListItemIcon>
+                <FaNetworkWired />
+              </ListItemIcon>
+              <ListItemText
+                primary={<ListItemPrimaryText label="Development" />}
+              />
+            </ListItemButton>
+            <ListItemButton sx={{ pl: 9 }}>
+              <ListItemIcon>
+                <FaFileContract />
+              </ListItemIcon>
+              <ListItemText
+                primary={<ListItemPrimaryText label="Smart contracts" />}
+              />
+            </ListItemButton>
+          </List>
           <ListItem key="projects" disablePadding>
             <ListItemButton onClick={() => handleClick('projects')}>
               <ListItemIcon>
-                <img src={logo32} alt="bunga raya logo" />
+                <FaProjectDiagram />
               </ListItemIcon>
               <ListItemText
                 primary={<ListItemPrimaryText label="Projects" />}
@@ -65,10 +106,10 @@ export default function AdminDrawerMenus() {
             </ListItemButton>
           </ListItem>
           <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 12 }}>
+            <ListItemButton sx={{ pl: 9 }}>
               <ListItemText primary={<ListItemPrimaryText label="Pending" />} />
             </ListItemButton>
-            <ListItemButton sx={{ pl: 12 }}>
+            <ListItemButton sx={{ pl: 9 }}>
               <ListItemText
                 primary={<ListItemPrimaryText label="Approved" />}
               />
@@ -81,11 +122,17 @@ export default function AdminDrawerMenus() {
           <Divider />
           <ListItem key="account" disablePadding>
             <ListItemButton>
+              <ListItemIcon>
+                <FaUserCog />
+              </ListItemIcon>
               <ListItemText primary={<ListItemPrimaryText label="Account" />} />
             </ListItemButton>
           </ListItem>
           <ListItem key="settings" disablePadding>
             <ListItemButton onClick={() => handleClick('projects')}>
+              <ListItemIcon>
+                <FaCog />
+              </ListItemIcon>
               <ListItemText
                 primary={<ListItemPrimaryText label="Settings" />}
               />

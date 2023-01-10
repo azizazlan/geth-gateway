@@ -9,7 +9,7 @@ import styles from './styles';
 import { useAdminSelector } from '../../services/hook';
 import { AdminState } from '../../services/store';
 
-export const DRAWER_WIDTH = 240;
+export const DRAWER_WIDTH = 257;
 
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;

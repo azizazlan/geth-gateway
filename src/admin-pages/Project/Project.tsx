@@ -1,14 +1,12 @@
 /* eslint-disable no-console */
 import Box from '@mui/material/Box';
 import { useParams } from 'react-router-dom';
-import { useEffect } from 'react';
 import Button from '@mui/material/Button';
 import { FormControl, InputLabel, OutlinedInput } from '@mui/material';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import { useAdminDispatch, useAdminSelector } from '../../services/hook';
+import { useAdminSelector } from '../../services/hook';
 import { AdminState } from '../../services/store';
-import { getProject } from '../../services/reducers/admin/reducer';
-import styles from '../Signin/styles';
+import styles from './styles';
 
 type ProjectFields = {
   name: string;
@@ -68,7 +66,7 @@ export default function Page() {
             defaultValue=""
             control={control}
             render={({ field }) => (
-              <OutlinedInput label="Name" id="name" {...field} />
+              <OutlinedInput readOnly label="Name" id="name" {...field} />
             )}
           />
         </FormControl>
@@ -80,6 +78,7 @@ export default function Page() {
             control={control}
             render={({ field }) => (
               <OutlinedInput
+                readOnly
                 multiline
                 label="Description"
                 id="description"
@@ -95,7 +94,7 @@ export default function Page() {
             defaultValue=""
             control={control}
             render={({ field }) => (
-              <OutlinedInput label="Status" id="status" {...field} />
+              <OutlinedInput readOnly label="Status" id="status" {...field} />
             )}
           />
         </FormControl>
@@ -106,14 +105,21 @@ export default function Page() {
             defaultValue=""
             control={control}
             render={({ field }) => (
-              <OutlinedInput label="CreatedAt" id="createdAt" {...field} />
+              <OutlinedInput
+                readOnly
+                label="CreatedAt"
+                id="createdAt"
+                {...field}
+              />
             )}
           />
         </FormControl>
       </form>
-      <Button variant="contained" type="submit" form="formApprove">
-        approve
-      </Button>
+      <Box sx={styles.buttons}>
+        <Button variant="contained" type="submit" form="formApprove">
+          approve
+        </Button>
+      </Box>
     </Box>
   );
 }

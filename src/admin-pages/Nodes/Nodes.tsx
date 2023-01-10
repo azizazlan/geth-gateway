@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -13,7 +14,7 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Chip } from '@mui/material';
-import StateManagedSelect from 'react-select/dist/declarations/src/stateManager';
+import { useParams } from 'react-router-dom';
 import StoragePieChart from '../../components/Chart/StoragePieChart';
 import CpuWidget from '../../components/Widget/CpuWidget';
 import MemoryWidget from '../../components/Widget/MemoryWidget';
@@ -146,20 +147,29 @@ const rows = [
 ];
 
 export default function CollapsibleTable() {
-  // const networkId = '2000';
+  const params = useParams();
+  const { networkType } = params;
   const { networkId } = useEthereumSelector(
     (state: EthereumState) => state.ethereum
   );
   const dispatch = useEthereumDispatch();
 
-  // useEffect to dispatch a thunk called getNetworkId
   React.useEffect(() => {
-    dispatch(getNetworkId());
-  }, []);
+    if (!networkType) {
+      return;
+    }
+    dispatch(
+      getNetworkId({
+        networkType,
+      })
+    );
+  }, [networkType]);
 
   return (
     <div>
-      <Typography variant="h5">Network ID: {networkId}</Typography>
+      <Typography variant="h5" sx={{ marginBottom: 3 }}>
+        Network ID: {networkId} ({networkType || 'development'})
+      </Typography>
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>

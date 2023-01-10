@@ -37,6 +37,7 @@ export default function App() {
       </Route>
       <Route path="/admin/nodes" element={<AdminLayout />}>
         <Route index element={<Nodes />} />
+        <Route path=":networkType" element={<Nodes />} />
       </Route>
     </Routes>
   );
