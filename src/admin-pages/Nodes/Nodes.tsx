@@ -142,97 +142,101 @@ const rows = [
 ];
 
 export default function CollapsibleTable() {
+  const networkId = '2000';
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                Node
-              </Typography>
-            </TableCell>
-            <TableCell>
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                Status
-              </Typography>
-            </TableCell>
-            <TableCell align="left">
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                Hostname
-              </Typography>
-            </TableCell>
-            <TableCell align="left">
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                IP
-              </Typography>
-            </TableCell>
-            <TableCell align="left">
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                Port
-              </Typography>
-            </TableCell>
-            <TableCell align="left">
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                Type
-              </Typography>
-            </TableCell>
-            <TableCell align="left">
-              <Typography
-                sx={{
-                  fontFamily: 'Oswald',
-                  fontSize: 14,
-                  color: 'grey',
-                }}
-              >
-                Enode
-              </Typography>
-            </TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <Row key={row.name} row={row} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <div>
+      <Typography variant="h5">Network ID: {networkId}</Typography>
+      <TableContainer component={Paper}>
+        <Table aria-label="collapsible table">
+          <TableHead>
+            <TableRow>
+              <TableCell />
+              <TableCell>
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  Node
+                </Typography>
+              </TableCell>
+              <TableCell>
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  Status
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  Hostname
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  IP
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  Port
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  Type
+                </Typography>
+              </TableCell>
+              <TableCell align="left">
+                <Typography
+                  sx={{
+                    fontFamily: 'Oswald',
+                    fontSize: 14,
+                    color: 'grey',
+                  }}
+                >
+                  Enode
+                </Typography>
+              </TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <Row key={row.name} row={row} />
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </div>
   );
 }
