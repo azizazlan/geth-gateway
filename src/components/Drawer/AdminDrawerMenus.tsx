@@ -47,7 +47,7 @@ export default function AdminDrawerMenus() {
             </ListItemButton>
           </ListItem>
           <ListItem key="gethNodes" disablePadding>
-            <ListItemButton>
+            <ListItemButton onClick={() => handleClick('nodes')}>
               <ListItemIcon>
                 <img src={ethereumLogo} alt="ethereum logo" />
               </ListItemIcon>
