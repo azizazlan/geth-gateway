@@ -1,14 +1,7 @@
-import NumericalWidget from './NumericalWidget';
-import orgLogo from '../../assets/org-logo.png';
+import NumberWidget from './NumberWidget';
 
 export default function OrganizationsWidget() {
   return (
-    <div>
-      <NumericalWidget
-        imgSrc={orgLogo}
-        title="No of organizations(clients)"
-        value="2"
-      />
-    </div>
+    <NumberWidget title="No of organizations" value="2" showCaution={false} />
   );
 }

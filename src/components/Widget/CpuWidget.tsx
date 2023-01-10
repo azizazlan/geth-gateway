@@ -1,20 +1,13 @@
 import { Box } from '@mui/material';
 import Iframe from '../Iframe/Iframe';
+import getWindowDimensions from '../../utils/getWindowDimensions';
 
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height,
-  };
-}
+const TOKEN = import.meta.env.VITE_APP_GRAFANA_TOKEN;
 
 export default function CPU() {
   const dimension = getWindowDimensions();
   const to = new Date().getTime() - 1 * 60 * 1000; // a minute delay
   const from = to - 60 * 60 * 1000; // last 60 minutes
-  const token =
-    'U58eyE3gt6Hqdd1dzLI2Q3TBPh7H-Kz3xBHdm_vrrjDa1LEfv8ma6wSk3uOzbJKDNLAOkKk5P9M4Pv7esTAJNg==';
 
   return (
     <Box
@@ -32,7 +25,7 @@ export default function CPU() {
         iframeWidth={`${dimension.width - 350}px`}
         iframeHeight="235"
         headers={{
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${TOKEN}`,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         }}

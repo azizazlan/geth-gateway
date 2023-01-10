@@ -1,10 +1,5 @@
-import NumericalWidget from './NumericalWidget';
-import ethereum from '../../assets/eth-logo.png';
+import NumberWidget from './NumberWidget';
 
 export default function TotalNodes() {
-  return (
-    <div>
-      <NumericalWidget imgSrc={ethereum} title="Total nodes" value="5" />
-    </div>
-  );
+  return <NumberWidget title="Total nodes" value="5" showCaution={false} />;
 }

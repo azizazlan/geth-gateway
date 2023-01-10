@@ -14,7 +14,7 @@ export default function PieChart({ data }: { data: any }) {
     <ResponsivePieCanvas
       isInteractive
       data={data}
-      margin={{ top: 50, right: 70, bottom: 0, left: 70 }}
+      margin={{ top: 30, right: 70, bottom: 10, left: 70 }}
       innerRadius={0.5}
       padAngle={0.7}
       cornerRadius={0}

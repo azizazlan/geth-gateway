@@ -1,22 +1,34 @@
 import { Navigate } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
-import { useAdminSelector } from '../../services/hook';
+import { useEffect } from 'react';
+import { useAdminDispatch, useAdminSelector } from '../../services/hook';
 import { AdminState } from '../../services/store';
 import ActiveNodesWidget from '../../components/Widget/ActiveNodesWidget';
 import ActiveEndpointsWidget from '../../components/Widget/ActiveEndpointsWidget';
 import ApprovedProjectsWidget from '../../components/Widget/ApprovedProjectsWidget';
 import styles from './styles';
 import LatestBlockWidget from '../../components/Widget/LatestBlockWidget';
-import LatestReceiptWidget from '../../components/Widget/LatestReceiptWidget';
-import StoragePieChart from './StoragePieChart';
+import StoragePieChart from '../../components/Chart/StoragePieChart';
 import CpuWidget from '../../components/Widget/CpuWidget';
 import SubmittedProjectsWidget from '../../components/Widget/SubmittedProjectsWidget';
 import TotalNodesWidget from '../../components/Widget/TotalNodesWidget';
 import MemoryWidget from '../../components/Widget/MemoryWidget';
+import getProjects from '../../services/thunks/admin/getProjects';
 
 export default function Dashboard() {
-  const { isSignedIn } = useAdminSelector((state: AdminState) => state.admin);
+  const dispatch = useAdminDispatch();
+  const { user, isSignedIn } = useAdminSelector(
+    (state: AdminState) => state.admin
+  );
+
+  useEffect(() => {
+    dispatch(
+      getProjects({
+        userId: user.id,
+      })
+    );
+  }, [isSignedIn]);
 
   if (!isSignedIn) {
     return <Navigate to="/admin" />;

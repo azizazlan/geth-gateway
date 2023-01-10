@@ -1,10 +1,5 @@
-import NumericalWidget from './NumericalWidget';
-import ethereum from '../../assets/eth-logo.png';
+import NumberWidget from './NumberWidget';
 
 export default function ActiveNodes() {
-  return (
-    <div>
-      <NumericalWidget warning imgSrc={ethereum} title="Active nodes" value="4" />
-    </div>
-  );
+  return <NumberWidget showCaution title="Active nodes" value="4" />;
 }

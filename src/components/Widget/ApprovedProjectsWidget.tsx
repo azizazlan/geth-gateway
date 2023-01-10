@@ -1,14 +1,7 @@
-import NumericalWidget from './NumericalWidget';
-import bungaRaya from '../../assets/outlined-logo.png';
+import NumberWidget from './NumberWidget';
 
 export default function ApprovedProjects() {
   return (
-    <div>
-      <NumericalWidget
-        imgSrc={bungaRaya}
-        title="Approved projects"
-        value="20"
-      />
-    </div>
+    <NumberWidget title="Approved projects" value="10" showCaution={false} />
   );
 }

@@ -13,7 +13,7 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Chip } from '@mui/material';
-import StoragePieChart from './StoragePieChart';
+import StoragePieChart from '../../components/Chart/StoragePieChart';
 import CpuWidget from '../../components/Widget/CpuWidget';
 import MemoryWidget from '../../components/Widget/MemoryWidget';
 

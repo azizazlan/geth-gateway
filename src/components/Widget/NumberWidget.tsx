@@ -1,28 +1,14 @@
-import * as React from 'react';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
-import { styled } from '@mui/material/styles';
 
 type NumericalWidgetProps = {
   title: string;
   value: string;
-  imgSrc: string;
-  warning: boolean;
+  showCaution: boolean | undefined;
 };
 
-const StyledIcon = styled('div')(({ theme }) => ({
-  margin: 'auto',
-  display: 'flex',
-  borderRadius: '50%',
-  alignItems: 'center',
-  width: theme.spacing(2),
-  height: theme.spacing(2),
-  justifyContent: 'center',
-  marginTop: theme.spacing(3.5),
-}));
-
-export default function NumericalWidget(props: NumericalWidgetProps) {
-  const { title, value, warning, imgSrc } = props;
+export default function NumberWidget(props: NumericalWidgetProps) {
+  const { title, value, showCaution } = props;
   return (
     <Card
       elevation={1}
@@ -36,14 +22,13 @@ export default function NumericalWidget(props: NumericalWidgetProps) {
         sx={{
           marginTop: 1.5,
           fontSize: 14,
-          color: 'black',
           fontWeight: 'bold',
           color: '#2f3640',
         }}
       >
         {title}
       </Typography>
-      {warning ? (
+      {showCaution ? (
         <Typography
           sx={{
             marginTop: 2,

@@ -1,11 +1,11 @@
 import Card from '@mui/material/Card';
 import Iframe from '../Iframe/Iframe';
 
+const TOKEN = import.meta.env.VITE_APP_GRAFANA_TOKEN;
+
 export default function Disk() {
   const to = new Date().getTime() - 1 * 60 * 1000; // a minute delay
   const from = to - 30 * 60 * 1000;
-  const token =
-    'U58eyE3gt6Hqdd1dzLI2Q3TBPh7H-Kz3xBHdm_vrrjDa1LEfv8ma6wSk3uOzbJKDNLAOkKk5P9M4Pv7esTAJNg==';
 
   return (
     <Card
@@ -23,7 +23,7 @@ export default function Disk() {
         iframeWidth="450"
         iframeHeight="250"
         headers={{
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${TOKEN}`,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         }}

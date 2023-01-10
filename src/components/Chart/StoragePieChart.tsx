@@ -1,6 +1,6 @@
-import { Card } from '@mui/material';
-import PieChart from '../../components/Chart/PieChart';
-import data from './dummyStorageData';
+import { Card, Typography } from '@mui/material';
+import PieChart from './PieChart';
+import data from '../../admin-pages/Dashboard/dummyStorageData';
 
 export default function StoragePieChart() {
   return (
@@ -8,13 +8,16 @@ export default function StoragePieChart() {
       elevation={0}
       sx={{
         width: 400,
-        height: 235,
+        height: 275,
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
       }}
     >
+      <Typography variant="body2" sx={{ marginBottom: -3, fontWeight: 'bold' }}>
+        Disk
+      </Typography>
       <PieChart data={data} />
     </Card>
   );
