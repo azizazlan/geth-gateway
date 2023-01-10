@@ -3,11 +3,13 @@ import { setupListeners } from '@reduxjs/toolkit/query';
 import appReducer from './reducers/app/reducer';
 import userReducer from './reducers/user/reducer';
 import adminReducer from './reducers/admin/reducer';
+import ethereumRdcr from './reducers/ethereum/reducer';
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
     admin: adminReducer,
+    ethereum: ethereumRdcr,
     user: userReducer,
   },
 });
@@ -22,3 +24,6 @@ export type UserDispatch = typeof store.dispatch;
 
 export type AdminState = ReturnType<typeof store.getState>;
 export type AdminDispatch = typeof store.dispatch;
+
+export type EthereumState = ReturnType<typeof store.getState>;
+export type EthereumDispatch = typeof store.dispatch;

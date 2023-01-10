@@ -1,27 +1,34 @@
 /* eslint-disable no-console */
 import { createSlice } from '@reduxjs/toolkit';
+import getNetworkId from '../../thunks/ethereum/getNetworkId';
 import { SubmissionStates } from '../submissionStates';
 
 interface EthereumState {
-  netId: number;
+  submissionState: SubmissionStates;
+  networkId: number;
 }
 
 const initialState: EthereumState = {
-  netId: -1,
+  submissionState: 'IDLE',
+  networkId: -1,
 };
 
-export const adminSlice = createSlice({
+export const ethereumSlice = createSlice({
   name: 'ethereumSlice',
   initialState,
   reducers: {
     reset: () => initialState,
   },
   extraReducers: (builder) => {
-    // builder.addCase(signIn.pending, (state, { payload }) => {
-    //   state.submissionState = 'PENDING';
-    //   state.user = null;
-    //   state.isSignedIn = false;
-    // });
+    builder.addCase(getNetworkId.pending, (state, { payload }) => {
+      state.submissionState = 'PENDING';
+    });
+    builder.addCase(getNetworkId.fulfilled, (state, { payload }) => {
+      // TODO : Implement error case
+      console.log(payload);
+      state.submissionState = 'OK';
+      state.networkId = payload;
+    });
   },
 });
 

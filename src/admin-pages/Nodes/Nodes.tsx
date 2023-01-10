@@ -13,9 +13,13 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Chip } from '@mui/material';
+import StateManagedSelect from 'react-select/dist/declarations/src/stateManager';
 import StoragePieChart from '../../components/Chart/StoragePieChart';
 import CpuWidget from '../../components/Widget/CpuWidget';
 import MemoryWidget from '../../components/Widget/MemoryWidget';
+import { useEthereumDispatch, useEthereumSelector } from '../../services/hook';
+import { EthereumState } from '../../services/store';
+import getNetworkId from '../../services/thunks/ethereum/getNetworkId';
 
 type NodeStatus = 'RUNNING' | 'STOP';
 
@@ -142,7 +146,17 @@ const rows = [
 ];
 
 export default function CollapsibleTable() {
-  const networkId = '2000';
+  // const networkId = '2000';
+  const { networkId } = useEthereumSelector(
+    (state: EthereumState) => state.ethereum
+  );
+  const dispatch = useEthereumDispatch();
+
+  // useEffect to dispatch a thunk called getNetworkId
+  React.useEffect(() => {
+    dispatch(getNetworkId());
+  }, []);
+
   return (
     <div>
       <Typography variant="h5">Network ID: {networkId}</Typography>
