@@ -105,16 +105,6 @@ export default function AdminDrawerMenus() {
               />
             </ListItemButton>
           </ListItem>
-          <List component="div" disablePadding>
-            <ListItemButton sx={{ pl: 9 }}>
-              <ListItemText primary={<ListItemPrimaryText label="Pending" />} />
-            </ListItemButton>
-            <ListItemButton sx={{ pl: 9 }}>
-              <ListItemText
-                primary={<ListItemPrimaryText label="Approved" />}
-              />
-            </ListItemButton>
-          </List>
         </List>
       </Box>
       <Box sx={{ margin: 1 }}>
