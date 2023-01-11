@@ -12,7 +12,8 @@ import Dashboard from './admin-pages/Dashboard/Dashboard';
 import AdminLayout from './layouts/AdminLayout';
 import AdminProjects from './admin-pages/Projects/Projects';
 import AdminProject from './admin-pages/Project/Project';
-import Nodes from './admin-pages/Nodes/Nodes'
+import Nodes from './admin-pages/Nodes/Nodes';
+import PageNotFound from './pages/PageNotFound/PageNotFound';
 
 export default function App() {
   return (
@@ -39,6 +40,7 @@ export default function App() {
         <Route index element={<Nodes />} />
         <Route path=":networkType" element={<Nodes />} />
       </Route>
+      <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 }

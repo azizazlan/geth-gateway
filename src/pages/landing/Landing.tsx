@@ -43,7 +43,7 @@ export default function Landing() {
           </Typography>
         </div>
         <div style={styles.rightColumn}>
-          TODO: Beautify
+          TODO: THIS IS A CONCEPT
           <Typography>Create a bunga raya account</Typography>
           <Typography>Create and submit a project</Typography>
           <Typography>Get the API Key and connect!</Typography>

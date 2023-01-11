@@ -103,53 +103,10 @@ function Row(props: { row: ReturnType<typeof createData> }) {
   );
 }
 
-const rows = [
-  createData(
-    'Node 1',
-    'RUNNING',
-    'BPI-BC1',
-    '10.20.29.21',
-    30310,
-    'geth 1.10.26-stable'
-  ),
-  createData(
-    'Node 2',
-    'STOP',
-    'BPI-BC2',
-    '10.22.27.20',
-    30310,
-    'geth 1.10.26-stable'
-  ),
-  createData(
-    'Node 3',
-    'RUNNING',
-    'BPI-BC3',
-    '109.10.102.112',
-    30310,
-    'geth 1.10.26-stable'
-  ),
-  createData(
-    'Node 4',
-    'RUNNING',
-    'BPI-BC4',
-    '110.11.19.11',
-    30310,
-    'geth 1.10.26-stable'
-  ),
-  createData(
-    'Node 5',
-    'RUNNING',
-    'BPI-BC5',
-    '129/107.67.101',
-    30310,
-    'geth 1.10.26-stable'
-  ),
-];
-
 export default function CollapsibleTable() {
   const params = useParams();
   const { networkType } = params;
-  const { networkId } = useEthereumSelector(
+  const { networkId, submissionState } = useEthereumSelector(
     (state: EthereumState) => state.ethereum
   );
   const dispatch = useEthereumDispatch();
@@ -165,10 +122,54 @@ export default function CollapsibleTable() {
     );
   }, [networkType]);
 
+  const rows = [
+    createData(
+      `${networkType === 'production' ? 'Node01' : 'Dev-Node01'}`,
+      'RUNNING',
+      `${networkType === 'production' ? 'BPI-BC1' : 'Dev-BC1'}`,
+      '10.20.29.21',
+      30310,
+      'geth 1.10.26-stable'
+    ),
+    createData(
+      `${networkType === 'production' ? 'Node02' : 'Dev-Node02'}`,
+      'STOP',
+      `${networkType === 'production' ? 'BPI-BC2' : 'Dev-BC2'}`,
+      '10.22.27.20',
+      30310,
+      'geth 1.10.26-stable'
+    ),
+    createData(
+      `${networkType === 'production' ? 'Node03' : 'Dev-Node03'}`,
+      'RUNNING',
+      `${networkType === 'production' ? 'BPI-BC3' : 'Dev-BC3'}`,
+      '109.10.102.112',
+      30310,
+      'geth 1.10.26-stable'
+    ),
+    createData(
+      `${networkType === 'production' ? 'Node04' : 'Dev-Node04'}`,
+      'RUNNING',
+      `${networkType === 'production' ? 'BPI-BC4' : 'Dev-BC4'}`,
+      '110.11.19.11',
+      30310,
+      'geth 1.10.26-stable'
+    ),
+    createData(
+      `${networkType === 'production' ? 'Node05' : 'Dev-Node05'}`,
+      'RUNNING',
+      `${networkType === 'production' ? 'BPI-BC5' : 'Dev-BC5'}`,
+      '129/107.67.101',
+      30310,
+      'geth 1.10.26-stable'
+    ),
+  ];
+
   return (
     <div>
       <Typography variant="h5" sx={{ marginBottom: 3 }}>
-        Network ID: {networkId} ({networkType || 'development'})
+        Network ID: {submissionState === 'PENDING' ? '...' : networkId} (
+        {networkType?.toUpperCase() || 'DEVELOPMENT'})
       </Typography>
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
